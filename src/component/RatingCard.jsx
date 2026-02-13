@@ -1,8 +1,8 @@
 import React from "react";
-import { Box, Flex, IconButton, Text } from "@chakra-ui/react";
+import { Box, Flex, IconButton,Image, Text, VStack } from "@chakra-ui/react";
 
 
-const RatingCard = ({ value, icon: Icon, label, variant, title, description }) => {
+const RatingCard = ({ value, icon: Icon, label, variant, title, description, image }) => {
 
   if (variant === "service") {
     return (
@@ -31,10 +31,10 @@ const RatingCard = ({ value, icon: Icon, label, variant, title, description }) =
           <Flex direction="row" align="center" gap={2}>
             {Icon && (
               <Box color="#041d3f">
-                <IconButton 
-                  icon={<Icon  width="25px" height="25px" />}
+                <IconButton
+                  icon={<Icon width="25px" height="25px" />}
                   variant="ghost"
-                 
+
                 />
               </Box>
             )}
@@ -51,6 +51,39 @@ const RatingCard = ({ value, icon: Icon, label, variant, title, description }) =
       </Box>
     )
   }
+
+  if (variant === "Workspace") {
+    return (
+
+      <VStack
+      >
+        <Box
+          borderRadius="16px"
+          overflow="hidden"
+          border="4px solid white"
+          boxShadow="lg"
+          transition="0.3s"
+          _hover={{ transform: "scale(1.05)" }}
+        >
+          <Image
+            src={image}
+            alt={title}
+            objectFit="cover"
+            w="100%"
+            h="200px"
+          />
+        </Box>
+
+        <Text color="white" fontSize="lg" fontWeight="medium">
+          {title}
+        </Text>
+      </VStack>
+
+
+    );
+  }
+
+
   return (
     <Box
       w="150px"

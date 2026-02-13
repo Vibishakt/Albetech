@@ -6,6 +6,7 @@ import RatingCard from "../../component/RatingCard";
 import OurServices from "./OurServices";
 import IndustriesSection from "./IndustriesSection";
 import Why from "./Why";
+import WorkshowCase from "./WorkshowCase";
 
 
 const ratingData = [
@@ -284,6 +285,7 @@ const HeaderSection = () => {
 
       <IndustriesSection/>
       <Why/>
+      <WorkshowCase/>
       </Box>
 
 
