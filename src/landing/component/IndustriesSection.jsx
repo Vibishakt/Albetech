@@ -34,6 +34,23 @@ const industries = [
 const IndustriesSection = () => {
   return (
     <Box
+  
+  
+          >
+            <VStack spacing={4} mb={12} textAlign="center">
+              <Heading size="md" fontSize="45px" fontWeight="300px" w="100%" color="white" >
+                Industries We Transform With{" "}
+                <Text as="span" color="cyan.400">
+                  AI
+                </Text>
+              </Heading>
+              <Text color="gray.300" maxW="900px">
+                We are your innovation partner, delivering future-ready AI solutions.
+              </Text>
+            </VStack>
+    
+    <Box
+
       py={15}
       bg="radial-gradient(circle at top, #031930, #00060f)"
       color="white"
@@ -103,6 +120,7 @@ const IndustriesSection = () => {
         </Box>
       ))}
 
+    </Box>
     </Box>
   );
 }

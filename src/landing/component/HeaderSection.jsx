@@ -1,12 +1,9 @@
 import React from "react";
-import { Box, Image, Flex, Text, IconButton, Grid, VStack, Heading } from "@chakra-ui/react";
+import { Box, Image, Flex, Text, IconButton, Grid } from "@chakra-ui/react";
 import { Albetechlogo, Gradientright, Grradientleft, Herobg, Leftlogo, Rightlogo, Getintouch, Vdeo } from "../../assets/images";
-import { BoxIcon, GlobeIcon, LogICon, Logo, LogoIcon, TickIcon, UserIcon, UsersIcon } from "../../assets/svg";
+import { BoxIcon, GlobeIcon, LogICon, Logo, LogoIcon, TickIcon, UserIcon, UsersIcon, } from "../../assets/svg";
 import RatingCard from "../../component/RatingCard";
-import OurServices from "./OurServices";
-import IndustriesSection from "./IndustriesSection";
-import Why from "./Why";
-import WorkshowCase from "./WorkshowCase";
+
 
 
 const ratingData = [
@@ -129,9 +126,9 @@ const HeaderSection = () => {
           <Box maxW="1100px">
             <Text
               fontFamily="DM Sans"
-              fontSize="50px"
+              fontSize="92px"
               fontWeight="400"
-              lineHeight="75px"
+              lineHeight="123px"
               letterSpacing="0px"
               color="#FFFFFF"
             >
@@ -148,56 +145,58 @@ const HeaderSection = () => {
               </Text>
             </Text>
             <Text mt="24px"
-              maxW="520px"
               mx="auto"
               color="#9FB6D8"
               letterSpacing="0"
               textAlign="center"
-              fontSize="13px">
+              fontSize="20px">
               With Albetech,we turn your bussiness ideas into AI-powered innovation through reliable,scalable,and
               future-ready IT solutions
             </Text>
 
 
-            <Text mt="6" color="gray.400" maxW="520px">
+            <Text mt="6" color="gray.400">
               Already chosen by the leaders
             </Text>
 
 
             <Flex
               mt="10"
-              align="center"
+              justifyContent="center"
               gap={10}
             >
-              <Flex gap={3}>
+              <Flex gap={2}>
                 <IconButton
-                  icon={<LogoIcon width="24px" />}
+                  icon={<LogoIcon width="30px" height="30px" />}
                   variant="ghost"
                 />
-                <Text>Logoipsum</Text>
+                <Text >Logoipsum</Text>
               </Flex>
 
               <IconButton
-                icon={<LogICon width="24px" />}
-                variant="ghost"
-              />
-              <Text >Logoipsum</Text>
-              <IconButton
-                icon={<Logo width="64px" />}
+                icon={<LogICon width="178px"  height="32px"  />}
                 variant="ghost"
               />
               <IconButton
-                icon={<GlobeIcon width="24px" />}
+                icon={<Logo width="106.31px" height="32px" />}
                 variant="ghost"
               />
+              <Flex gap={2}>
+                 <IconButton
+                icon={<GlobeIcon width="40px" height="40px" />}
+                variant="ghost"
+              />
+               <Text >Logoipsum</Text>
+              </Flex>
+             
             </Flex>
           </Box>
 
         </Box>
         <Box
-          mt={3}
+          mt={5}
           position="relative"
-          maxW="420px"
+          justifyItems="center"
           mx="auto"
           mb={3}
         >
@@ -206,12 +205,13 @@ const HeaderSection = () => {
             borderRadius="20px"
             overflow="hidden"
             position="relative"
+            w="1472px"
+            mt={24}
+
           >
             <Image
               src={Vdeo}
               alt="Hero Video"
-              w="100%"
-              h="100%"
               objectFit="cover"
             />
             <Box
@@ -231,10 +231,10 @@ const HeaderSection = () => {
         </Box>
 
       </Box>
-      <Box mt="30px" w="100%" maxW="1200px" px="40px" py="24px" backdropFilter="blur(12px)" >
+      <Box mt="30px" w="100%" px="40px" py="24px" backdropFilter="blur(12px)" >
         <Text
-          fontSize={{ base: "20px", md: "28px" }}
-          fontWeight="300"
+          fontSize="48px"
+          fontWeight="400"
           textAlign="center"
           mb="3"
         >
@@ -242,17 +242,16 @@ const HeaderSection = () => {
         </Text>
 
         <Text
-          fontSize="10px"
+          fontSize="25px"
           color="gray.300"
           textAlign="center"
-          maxW="850px"
           mx="auto"
           mb="40px"
         >
           We combine innovation, excellence, and cutting-edge technology to
           provide tailored IT solutions for your business and future growth.
         </Text>
-        <Grid templateColumns='repeat(5,170px)' justifyContent="center">
+        <Grid templateColumns='repeat(5,290px)' justifyContent="center">
           {ratingData.map((item) => (
             <RatingCard
               key={item.id}
@@ -264,32 +263,6 @@ const HeaderSection = () => {
         </Grid>
 
       </Box>
-      <OurServices />
-      <Box
-
-        py="100px"
-
-      >
-        <VStack spacing={4} mb={12} textAlign="center">
-          <Heading size="md" fontSize="45px" fontWeight="300px" w="100%" >
-            Industries We Transform With{" "}
-            <Text as="span" color="cyan.400">
-              AI
-            </Text>
-          </Heading>
-          <Text color="gray.300" maxW="900px">
-            We are your innovation partner, delivering future-ready AI solutions.
-          </Text>
-        </VStack>
-
-
-      <IndustriesSection/>
-      <Why/>
-      <WorkshowCase/>
-      </Box>
-
-
-
     </Box>
   )
 }
