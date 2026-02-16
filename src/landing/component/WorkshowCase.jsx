@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, VStack, Heading, Text, Flex } from '@chakra-ui/react';
+import { Box, VStack, Heading, Text, Flex,Grid } from '@chakra-ui/react';
 import { Android, Enterprise, Iosdevelopment, Mernstack, Webapplication } from '../../assets/images';
 import RatingCard from '../../component/RatingCard';
 
@@ -38,9 +38,9 @@ const Workspace = [
 
 const WorkshowCase = () => {
   return (
-    <Box py={5} color="white" position="relative">
-      <Box p={12} position="relative">
-        <VStack spacing={4} textAlign="center" mb={1}>
+    <Box py={5} color="white" position="relative" >
+      <Box p={5} position="relative">
+        <VStack spacing={4} textAlign="center" mb={10}>
           <Heading size="md" fontSize="45px" fontWeight="300">
             <Text as="span" color="#0E65BF">
               Work
@@ -48,22 +48,21 @@ const WorkshowCase = () => {
             Showcase
           </Heading>
 
-          <Text maxW="600px" fontSize="10px" opacity={0.7}>
+          <Text fontSize="14px" opacity={0.7}>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
           </Text>
         </VStack>
 
-        <Flex wrap="wrap" justify="center" gap={6}>
-          {Workspace.map((item) => (
-            <Box key={item.id} maxW="300px">
-              <RatingCard
-                variant="Workspace"
-                title={item.title}
-                image={item.image}
-              />
-            </Box>
-          ))}
-        </Flex>
+       <Grid templateColumns="repeat(3, 350px)" gap={3} justifyContent="center">
+  {Workspace.map((item) => (
+    <RatingCard
+      key={item.id}
+      variant="Workspace"
+      title={item.title}
+      image={item.image}
+    />
+  ))}
+</Grid>
 
       </Box>
     </Box>

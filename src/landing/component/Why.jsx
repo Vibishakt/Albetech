@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Box, Flex, Text, Heading, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon,} from "@chakra-ui/react";
+import { Box, Flex, Text, Heading, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, } from "@chakra-ui/react";
 
 const data = [
   {
@@ -40,15 +40,14 @@ const Why = () => {
       overflow="hidden"
     >
       <Flex
-        maxW="1200px"
         pr={10}
         justify="center"
         gap={24}
       >
-        <Box position="relative" minW="420px">
+        <Box position="relative" gap={3}>
           <Text
             position="absolute"
-            top="30%"
+            top="20%"
             left="350px"
             transform="translateY(-50%)"
             fontSize="240px"
@@ -58,37 +57,40 @@ const Why = () => {
           >
             ?
           </Text>
+          <Box textAlign="left" >
+            <Heading
+              fontSize="100px"
+              fontWeight="300"
+              lineHeight="1.1"
+              position="relative"
+              zIndex={1}
+              textAlign="-khtml-left"
+            >
+              Why
+            </Heading>
 
-          <Heading
-            fontSize="45px"
-            fontWeight="300"
-            lineHeight="1.1"
-            position="relative"
-            zIndex={1}
-          >
-            Why
-          </Heading>
+            <Heading
+              fontSize="100px"
+              fontWeight="300"
+              lineHeight="1.1"
+              position="relative"
+              zIndex={1}
+            >
+              Choose
+            </Heading>
 
-          <Heading
-            fontSize="50px"
-            fontWeight="300"
-            lineHeight="1.1"
-            position="relative"
-            zIndex={1}
-          >
-            Choose
-          </Heading>
+            <Heading
+              fontSize="100px"
+              fontWeight="400"
+              lineHeight="1.1"
+              color="#0E65BF"
+              position="relative"
+              zIndex={1}
+            >
+              AlbeTech
+            </Heading>
+          </Box>
 
-          <Heading
-            fontSize="56px"
-            fontWeight="600"
-            lineHeight="1.1"
-            color="#0E65BF"
-            position="relative"
-            zIndex={1}
-          >
-            AlbeTech
-          </Heading>
         </Box>
 
         <Box w="30%" >

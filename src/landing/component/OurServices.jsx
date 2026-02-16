@@ -66,14 +66,14 @@ const OurServices = () => {
                 position="relative"
             >
                 <VStack spacing={4} textAlign="center" mb={1}>
-                    <Heading size="md" fontSize="45px" fontWeight="300">
+                    <Heading size="md" fontSize="82px" fontWeight="300">
                         <Text as="span" color="cyan.400">
                             Our
                         </Text>{" "}
                         Services
                     </Heading>
 
-                    <Text maxW="450px" fontSize="15px" opacity={0.7}>
+                    <Text  fontSize="25px" fontWeight="300px" width="971px" >
                         With a blend of AI and developmental best practice, we bring
                         the best of both worlds to your business.
                     </Text>
@@ -82,10 +82,11 @@ const OurServices = () => {
             <Flex
                 wrap="wrap"
                 justify="center"
-                gap={6}
+                gap={3}
             >
                 {services.map((item) => (
-                    <Box key={item.id} maxW="300px" flex="0 0 300px">
+                    <Box key={item.id} flex="0 0 420px"
+>
                         <RatingCard
                             variant="service"
                             title={item.title}
