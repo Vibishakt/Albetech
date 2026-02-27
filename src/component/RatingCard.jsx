@@ -387,6 +387,7 @@ const RatingCard = ({
             />
           )}
         </Flex>
+         <hr />
 
         <Text color="white" fontSize={{ base: "14px", md: "16px" }}>
           {label}
