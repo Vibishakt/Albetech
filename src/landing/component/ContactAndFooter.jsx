@@ -3,6 +3,7 @@ import { Box, Container, Text, Button, Flex, Badge, Input, IconButton, Divider, 
 import { BlueBg } from "../../assets/images";
 import { FacebookIcon, PrintrestIcon, TwitterIcon, YoutubeIcon, LinkedIn, SendIcon, } from "../../assets/svg";
 import { InputGroup, InputRightElement } from "@chakra-ui/react";
+import { UnorderedList,ListItem } from "@chakra-ui/react";
 
 const iconData = [TwitterIcon, FacebookIcon, YoutubeIcon, PrintrestIcon, LinkedIn,];
 
@@ -137,16 +138,22 @@ const ContactAndFooter = () => {
                 ml={20}
 
               >
-                <Text fontWeight="600" fontSize="18px" mb={4}>
+
+                 <Text fontWeight="600" fontSize="18px" mb={4}>
                   Useful links
                 </Text>
-                <Text cursor="pointer">• Home</Text>
-                <Text cursor="pointer">• About us</Text>
-                <Text cursor="pointer">• Our Services</Text>
-                <Text cursor="pointer">• Our Process</Text>
-                <Text cursor="pointer">• Our Clients</Text>
-                <Text cursor="pointer">• Why Albetech?</Text>
-                <Text cursor="pointer">• Contact Us</Text>
+
+                <UnorderedList  textAlign="start" color="gray.600" >
+                  
+                  <ListItem  >Home</ListItem>
+                  <ListItem>About us</ListItem>
+                  <ListItem>Our Services</ListItem>
+                  <ListItem>Our process</ListItem>
+                  <ListItem>Our Clients</ListItem>
+                  <ListItem>Why albetech</ListItem>
+                  <ListItem>Contact</ListItem>
+
+                </UnorderedList>
               </VStack>
             </Box>
 
@@ -155,7 +162,7 @@ const ContactAndFooter = () => {
                 Let’s talk
               </Text>
 
-              <Text fontSize="14px" color="gray.600" mb={6}>
+              <Text fontSize="14px" color="gray.600" mb={4}>
                 +91 7994163062
               </Text>
 
@@ -169,7 +176,7 @@ const ContactAndFooter = () => {
             </Box>
 
             <Box>
-              <Text fontWeight="600" fontSize="18px" mb={4}>
+              <Text fontWeight="600" fontSize="18px" mb={4} textAlign="start" >
                 Our Location
               </Text>
 
@@ -177,6 +184,7 @@ const ContactAndFooter = () => {
                 fontSize="14px"
                 color="gray.600"
                 lineHeight="1.8"
+                textAlign="start"
               >
                 77 Spaces, 4th Floor, Lotus Tower,
                 Kumarapuram, Thiruvananthapuram,
