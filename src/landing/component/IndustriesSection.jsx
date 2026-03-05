@@ -114,25 +114,26 @@ const IndustriesSection = () => {
               p={5}
             >
               <Circle
-                size="40px"
+                size="40px" 
                 border="1px solid white"
                 fontSize="14px"
               >
                 {item.id}
               </Circle>
-
+              <Flex w="290px" >
               <Heading
                 fontSize={{ base: "20px", md: "28px", lg: "25px" }}
                 fontWeight="500"
               >
                 {item.title}
               </Heading>
-
-              <Flex direction="column" gap={4} flex="1" >
+              </Flex>
+              <Flex direction="column" gap={4} flex="1" ml={4}   >
                 <Text
                   color="gray.300"
                   fontSize={{ base: "14px", md: "16px", lg: "18px" }}
-                  justifyContent="center"
+                  align="start"
+                  
                   // p={5}
                 >
                   {item.description}

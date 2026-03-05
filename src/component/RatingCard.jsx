@@ -1,7 +1,7 @@
 import React from "react";
 import {Box,Flex,IconButton,Image,Text,VStack,HStack,Avatar } from "@chakra-ui/react";
 
-const RatingCard = ({value,icon: Icon,label,variant,title,description,image,number,name,role,location,text}) => {
+const RatingCard = ({value,icon: Icon,label,variant,title,description,image,number,name,text}) => {
 
   if (variant === "service") {
     return (
@@ -104,34 +104,70 @@ const RatingCard = ({value,icon: Icon,label,variant,title,description,image,numb
   }
 
   
+  // if (variant === "test") {
+  //   return (
+  //     <Box
+  //       w="100%"
+  //       p={{ base: 5, md: 8 }}
+  //       borderRadius="20px"
+  //       bg="rgba(255,255,255,0.08)"
+  //       backdropFilter="blur(12px)"
+  //     >
+  //       <Flex w="100px">
+  //       <Text color="gray.200" fontSize={{ base: "16px", md: "20px" }}>
+  //         “ {text} ”
+  //       </Text>
+  //       </Flex>
+
+  //       <HStack mt={4} spacing={3}>
+  //         <Avatar size="sm" name={name} />
+
+  //         <VStack align="start" spacing={0} >
+  //           <Text fontSize="14px" fontWeight="600">
+  //             {name}, 
+  //           </Text>
+           
+  //         </VStack>
+  //       </HStack>
+  //     </Box>
+  //   );
+  // }
+
   if (variant === "test") {
-    return (
-      <Box
-        w="100%"
-        p={{ base: 5, md: 8 }}
-        borderRadius="20px"
-        bg="rgba(255,255,255,0.08)"
-        backdropFilter="blur(12px)"
+  return (
+    <Box
+      w="100%"
+      minH="320px"  
+      p={{ base: 6, md: 8 }}
+      borderRadius="20px"
+      bg="rgba(255,255,255,0.08)"
+      backdropFilter="blur(12px)"
+      display="flex"
+      flexDirection="column"
+    >
+     
+      <Text
+        color="gray.200"
+        fontSize={{ base: "15px", md: "16px" }}
+        lineHeight="26px"
+        justifyItems="flex-start"
       >
-        <Text color="gray.200" fontSize={{ base: "16px", md: "20px" }}>
-          “ {text} ”
-        </Text>
+        “ {text} ”
+      </Text>
+      
 
-        <HStack mt={4} spacing={3}>
-          <Avatar size="sm" name={name} />
+      <HStack mt={6} spacing={3} align="center">
+        <Avatar size="sm" name={name} />
 
-          <VStack align="start" spacing={0}>
-            <Text fontSize="14px" fontWeight="600">
-              {name}, {location}
-            </Text>
-            <Text fontSize="12px" color="gray.400">
-              {role}
-            </Text>
-          </VStack>
-        </HStack>
-      </Box>
-    );
-  }
+        <VStack align="start" spacing={0}>
+          <Text fontSize="15px" fontWeight="600" color="white">
+            {name}
+          </Text>
+        </VStack>
+      </HStack>
+    </Box>
+  );
+}
 
   return (
     <Box

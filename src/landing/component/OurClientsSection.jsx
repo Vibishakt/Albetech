@@ -1,9 +1,11 @@
+
+
 import React, { useState } from "react";
 import {Box,Container,Flex,Text,Button,Image,IconButton,} from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
-import { carouselimg, carouselimg2 } from "../../assets/images";
+import {Client1,Client10,Client2,Client3,Client4,Client5,Client6,Client7,Client8,} from "../../assets/images";
 
-const images = [carouselimg, carouselimg2];
+const images = [Client1,Client2,Client3,Client4,Client5,Client6,Client7,Client8,Client10,];
 
 const OurClientsSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -28,7 +30,7 @@ const OurClientsSection = () => {
       py={{ base: 16, md: 28 }}
       overflow="hidden"
     >
-      {/* Background Text */}
+      
       <Text
         position="absolute"
         top={{ base: "10px", md: "30px" }}
@@ -52,7 +54,6 @@ const OurClientsSection = () => {
         px={{ base: 4, md: 0 }}
       >
         <Box position="relative" mt={{ base: 10, md: 24 }}>
-
           <IconButton
             icon={<ChevronLeftIcon />}
             position="absolute"
@@ -77,11 +78,7 @@ const OurClientsSection = () => {
             aria-label="Next"
           />
 
-          <Flex
-            justify="center"
-            align="center"
-            gap={{ base: 3, md: 6 }}
-          >
+          <Flex justify="center" align="center" gap={{ base: 3, md: 6 }}>
             <Box display={{ base: "none", md: "block" }}>
               <CarouselCard img={getImage(-2)} scale="0.8" opacity="0.3" />
             </Box>
@@ -114,7 +111,7 @@ const OurClientsSection = () => {
             mb={3}
             fontWeight="400"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+            Your growth is our greatest achievement....
           </Text>
 
           <Text
@@ -124,8 +121,7 @@ const OurClientsSection = () => {
             mx="auto"
             mb={6}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            We build scalable solutions for startups and enterprises, grounded in trust, transparency, and innovation. Combining strategy with technical expertise, we deliver impactful digital solutions that drive growth and long-term success across industries.
           </Text>
 
           <Button
@@ -157,8 +153,17 @@ const CarouselCard = ({ img, scale, opacity }) => {
         borderRadius="20px"
         overflow="hidden"
         boxShadow="lg"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        bg="white"
       >
-        <Image src={img} w="100%" h="100%" objectFit="cover" />
+        <Image
+          src={img}
+          maxW="80%"
+          maxH="80%"
+          objectFit="fill"
+        />
       </Box>
     </Box>
   );
