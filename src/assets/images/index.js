@@ -26,12 +26,14 @@ import Client7 from './Client7.jpg';
 import Client8 from './Client8.jpg';
 import Client9 from './Client9.jpg';
 import Client10 from './Client10.jpg';
+import selektup from './selektup.jpeg';
+import Gosuas from './Gosuas.avif';
 
 
 
 
 
 export{
-    Herobg,Albetechlogo,Gradientright,Grradientleft,Leftlogo,Rightlogo,Getintouch,Vdeo,bgTwo,Android,Iosdevelopment,Mernstack,Enterprise,Webapplication,cardimg,carouselimg,carouselimg2,BlueBg,Client1,Client2,Client3,Client4,Client5,Client6,Client7,Client8,Client9,Client10
+    Herobg,Albetechlogo,Gradientright,Grradientleft,Leftlogo,Rightlogo,Getintouch,Vdeo,bgTwo,Android,Iosdevelopment,Mernstack,Enterprise,Webapplication,cardimg,carouselimg,carouselimg2,BlueBg,Client1,Client2,Client3,Client4,Client5,Client6,Client7,Client8,Client9,Client10,selektup,Gosuas
 
 }

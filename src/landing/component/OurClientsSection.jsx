@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 import {Box,Container,Flex,Text,Button,Image,IconButton,} from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
@@ -24,35 +22,41 @@ const OurClientsSection = () => {
   };
 
   return (
-    <Box
-      position="relative"
-      bgGradient="linear(to-t, white 40%, rgba(255,255,255,0.2) 100%)"
-      py={{ base: 16, md: 28 }}
-      overflow="hidden"
+
+  <Box
+    position="relative"
+    bgGradient="linear(to-t, white 40%, rgba(255,255,255,0.2) 100%)"
+    py={{ base: 16, md: 28 }}
+    overflow="hidden"
+  >
+
+    <Text
+      position="absolute"
+      top={{ base: "-20px", md: "-80px", lg: "-80px" }}
+      left="50%"
+      transform="translateX(-50%)"
+      fontSize={{ base: "60px", sm: "110px", md: "170px", lg: "230px" }}
+      fontWeight="400"
+      letterSpacing="6px"
+      whiteSpace="nowrap"
+      zIndex="0"
+      pointerEvents="none"
+
+      bgGradient="linear(to-b, white, rgba(255,255,255,0.1))"
+      bgClip="text"
+      color="transparent"
     >
-      
-      <Text
-        position="absolute"
-        top={{ base: "10px", md: "30px" }}
-        left="50%"
-        transform="translateX(-50%)"
-        fontSize={{ base: "60px", sm: "100px", md: "180px", lg: "275px" }}
-        fontWeight="300"
-        color="gray.100"
-        whiteSpace="nowrap"
-        letterSpacing="6px"
-        zIndex="0"
-      >
-        OUR CLIENTS
-      </Text>
+      OUR CLIENTS
+    </Text>
 
       <Container
         maxW="1400px"
         position="relative"
-        zIndex="1"
-        mt={{ base: 20, md: 40 }}
+        zIndex="2"
+        mt={{ base: 10, md: 20 }}
         px={{ base: 4, md: 0 }}
       >
+      
         <Box position="relative" mt={{ base: 10, md: 24 }}>
           <IconButton
             icon={<ChevronLeftIcon />}
@@ -99,29 +103,28 @@ const OurClientsSection = () => {
           </Flex>
         </Box>
 
-        <Box
-          textAlign="center"
-          mt={{ base: 10, md: 14 }}
-          px={{ base: 4, md: 0 }}
-        >
+        
+        <Box textAlign="center" mt={{ base: 10, md: 14 }}>
           <Text
             fontStyle="italic"
-            color="gray.600"
+            color="black"
             fontSize={{ base: "16px", md: "20px", lg: "25px" }}
             mb={3}
-            fontWeight="400"
           >
             Your growth is our greatest achievement....
           </Text>
 
           <Text
             fontSize={{ base: "14px", md: "18px", lg: "20px" }}
-            color="gray.600"
+            color="black"
             maxW="900px"
             mx="auto"
             mb={6}
           >
-            We build scalable solutions for startups and enterprises, grounded in trust, transparency, and innovation. Combining strategy with technical expertise, we deliver impactful digital solutions that drive growth and long-term success across industries.
+            We build scalable solutions for startups and enterprises, grounded
+            in trust, transparency, and innovation. Combining strategy with
+            technical expertise, we deliver impactful digital solutions that
+            drive growth and long-term success across industries.
           </Text>
 
           <Button
@@ -142,11 +145,7 @@ const OurClientsSection = () => {
 
 const CarouselCard = ({ img, scale, opacity }) => {
   return (
-    <Box
-      transition="all 0.5s ease"
-      transform={`scale(${scale})`}
-      opacity={opacity}
-    >
+    <Box transition="all 0.5s ease" transform={`scale(${scale})`} opacity={opacity}>
       <Box
         w={{ base: "240px", sm: "300px", md: "360px", lg: "418px" }}
         h={{ base: "240px", sm: "300px", md: "360px", lg: "418px" }}
@@ -158,12 +157,7 @@ const CarouselCard = ({ img, scale, opacity }) => {
         justifyContent="center"
         bg="white"
       >
-        <Image
-          src={img}
-          maxW="80%"
-          maxH="80%"
-          objectFit="fill"
-        />
+        <Image src={img} maxW="80%" maxH="80%" objectFit="contain" />
       </Box>
     </Box>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import {Box,Container,Flex,Heading,Text,Button,HStack,Image} from "@chakra-ui/react";
-import { cardimg } from "../../assets/images";
+import { cardimg, Gosuas } from "../../assets/images";
+import {selektup} from '../../assets/images';
 
 const testimonials = [
   {
@@ -13,7 +14,7 @@ professionalism, timely delivery, and strong
 understanding of learning ecosystems made the 
 collaboration highly effective.`,
     name: "Selekt Up",
-    image: cardimg
+    image: selektup
   },
   {
     text: `The team delivered a scalable and user-friendly e
@@ -23,8 +24,8 @@ customer journey optimization ensured a smooth
 launch. Professional execution and reliable post
 launch support made them a trusted long-term 
 technology partner.`,
-    name: "Goosuas",
-    image: cardimg
+    name: "Gosuas",
+    image: Gosuas
   },
   {
     text: `We received dependable and qualified human 
@@ -126,6 +127,7 @@ const TestimonialsSection = () => {
                 fontSize={{ base: "14px", md: "15px" }}
                 lineHeight="26px"
                 color="gray.200"
+                  textAlign="start"
               >
                 “ {item.text} ”
               </Text>
