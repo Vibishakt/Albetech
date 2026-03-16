@@ -1,305 +1,10 @@
-// import React from "react";
-// import { Box, Image, Flex, Text, IconButton, Grid ,Container} from "@chakra-ui/react";
-// import { Albetechlogo, Gradientright, Grradientleft, Herobg, Leftlogo, Rightlogo, Getintouch, Vdeo } from "../../assets/images";
-// import { BoxIcon, GlobeIcon, LogICon, Logo, LogoIcon, TickIcon, UserIcon, UsersIcon, } from "../../assets/svg";
-// import RatingCard from "../../component/RatingCard";
-
-
-
-// const ratingData = [
-//   {
-//     value: 25,
-//     icon: TickIcon,
-//     label: "Successful Years"
-//   },
-//   {
-//     value: 7,
-//     icon: TickIcon,
-//     label: "Global Awards"
-//   },
-//   {
-//     value: 2000,
-//     icon: BoxIcon,
-//     label: "Projects Completed"
-//   },
-//   {
-//     value: 1000,
-//     icon: UserIcon,
-//     label: "Happy Clients"
-//   },
-//   {
-//     value: 250,
-//     icon: UsersIcon,
-//     label: "Team Members"
-//   }
-// ]
-
-// const HeaderSection = () => {
-//   return (
-//     <Box
-//       w="100%"
-//       bgImage={`url(${Herobg})`}
-//       bgSize="cover"
-//       bgPosition="center"
-//       color="white"
-//       position="relative"
-//       overflow="hidden"
-//     >
-//       <Box
-//         position="absolute"
-//         top="-50px"
-//         left="-100px"
-//         w={{base:"300px",md:"500px",lg:"700px"}}
-//         bgImage={`url(${Grradientleft})`}
-//         bgRepeat="no-repeat"
-//         bgSize="contain"
-//         opacity="0.6"
-
-//       />
-
-//       <Box
-//         position="absolute"
-//         top="-50px"
-//         right="-100px"
-//         w={{base:"300px",md:"500px",lg:"700px"}}
-//         bgImage={`url(${Gradientright})`}
-//         bgRepeat="no-repeat"
-//         bgSize="contain"
-//         opacity="0.6"
-
-//       />
-//       <Image
-//         src={Leftlogo}
-//         position="absolute"
-//         left="0"
-//         top="50px"
-//         zIndex={1}
-//         pointerEvents="none"
-//       />
-
-//       <Image
-//         src={Rightlogo}
-//         position="absolute"
-//         right="0"
-//         top="50%"
-//         zIndex={1}
-//         pointerEvents="none"
-//       />
-//       <Box
-//         position="relative"
-//         zIndex={2}>
-//         <Flex
-//           h="72px"
-//           px={{ base: 4, md: 16 }}
-//           align="center"
-//           justify="space-between"
-//           color="white"
-
-//         >
-//           <Text fontSize="32px" letterSpacing="1px" >
-//             albetech
-//           </Text>
-//           <Image
-//             src={Albetechlogo}
-//             h="127px"
-//             w="130px"
-//             alt="Albetech" />
-
-//           <Image
-//             src={Getintouch}
-//             h="20px"
-//             cursor="pointer"
-//             alt="get in touch"
-//           />
-
-
-
-//         </Flex>
-//         <Box
-//           w="100%"
-//           display="flex"
-//           justifyContent="center"
-//           textAlign="center"
-//           mt="50px"
-//         >
-//           <Box maxW="1100px">
-//             <Text
-//               fontFamily="DM Sans"
-//               fontSize={{base:"20px",lg:"92px"}}
-//               fontWeight="400"
-//               lineHeight="123px"
-//               letterSpacing="0px"
-//               color="#FFFFFF"
-//             >
-//               Engineering Your Vision
-//               <br />
-//               Through{" "}
-//               <Text
-//                 as="span"
-//                 bgGradient="linear(to-r,  #08A6E1 0%, #13B4D2 55%, #FFFFFF 100%)"
-//                 bgClip="text"
-//                 fontWeight="400"
-//               >
-//                 Smart Technology
-//               </Text>
-//             </Text>
-//             <Text mt="24px"
-//               mx="auto"
-//               color="#9FB6D8"
-//               letterSpacing="0"
-//               textAlign="center"
-//               fontSize="20px">
-//                 Turning I deas Into Smart Digital Innovation Albetech helps you convert bold business visions into reliable ,high-perfotmance technology solutions designed for tomorrow. 
-//             </Text>
-
-
-//             <Text mt="6" color="gray.400">
-//               Already chosen by the leaders
-//             </Text>
-
-
-//             <Flex
-//               mt="10" 
-//               justifyContent="center"
-//               gap={10}
-//             >
-//               <Flex gap={2}>
-//                 <IconButton
-//                   icon={<LogoIcon width="30px" height="30px" />}
-//                   variant="ghost"
-//                 />
-//                 <Text >Logoipsum</Text>
-//               </Flex>
-
-//               <IconButton
-//                 icon={<LogICon width="178px"  height="32px"  />}
-//                 variant="ghost"
-//               />
-//               <IconButton
-//                 icon={<Logo width="106.31px" height="32px" />}
-//                 variant="ghost"
-//               />
-//               <Flex gap={2}>
-//                  <IconButton
-//                 icon={<GlobeIcon width="40px" height="40px" />}
-//                 variant="ghost"
-//               />
-//                <Text >Logoipsum</Text>
-//               </Flex>
-
-//             </Flex>
-//           </Box>
-
-//         </Box>
-//         <Box
-//           mt={5}
-//           position="relative"
-//           justifyItems="center"
-//           mx="auto"
-//           mb={3}
-//         >
-//           <Box
-//             border="2px solid white"
-//             borderRadius="20px"
-//             overflow="hidden"
-//             position="relative"
-//             w="1472px"
-//             mt={24}
-
-//           >
-//             <Image
-//               src={Vdeo}
-//               alt="Hero Video"
-//               objectFit="cover"
-//             />
-//             <Box
-//               position="absolute"
-//               top="50%"
-//               left="50%"
-//               transform="translate(-50%, -50%)"
-//               bg="whiteAlpha.800"
-//               p="20px"
-//               borderRadius="full"
-//               cursor="pointer"
-//               _hover={{ transform: "translate(-50%, -50%) scale(1.1)" }}
-//               transition="0.3s"
-//             >
-//             </Box>
-//           </Box>
-//         </Box>
-
-//       </Box>
-//       <Box mt="30px" w="100%" px="40px" py="24px" backdropFilter="blur(12px)" >
-//         <Text
-//           fontSize="48px"
-//           fontWeight="400"
-//           textAlign="center"
-//           mb="3"
-//         >
-//           Partners | Innovation | Future-Ready Excellence
-//         </Text>
-
-//         <Text
-//           fontSize="25px"
-//           color="gray.300"
-//           textAlign="center"
-//           mx="auto"
-//           mb="40px"
-//         >
-//           We combine innovation, excellence, and cutting-edge technology to
-//           provide tailored IT solutions for your business and future growth.
-//         </Text>
-//         <Grid templateColumns='repeat(5,290px)' justifyContent="center">
-//           {ratingData.map((item) => (
-//             <RatingCard
-//               key={item.id}
-//               value={item.value}
-//               label={item.label}
-//               icon={item.icon}
-//             />
-//           ))}
-//         </Grid>
-
-//       </Box>
-//     </Box>
-//   )
-// }
-
-// export default HeaderSection;
-
-import React from "react";
-import {
-  Box,
-  Image,
-  Flex,
-  Text,
-  Grid,
-  Container
-} from "@chakra-ui/react";
-
-import {
-  Albetechlogo,
-  Gradientright,
-  Grradientleft,
-  Herobg,
-  Leftlogo,
-  Rightlogo,
-  Getintouch,
-  Vdeo
-} from "../../assets/images";
-
-import {
-  BoxIcon,
-  GlobeIcon,
-  LogICon,
-  Logo,
-  LogoIcon,
-  TickIcon,
-  UserIcon,
-  UsersIcon
-} from "../../assets/svg";
-
+import React, { useState, useRef } from "react";
+import { Box, Image, Flex, Text, Grid, Container, Collapse, Menu, MenuButton, MenuList, MenuItem, IconButton } from "@chakra-ui/react";
+import { Albetechlogo, Gradientright, Grradientleft, Herobg, Leftlogo, Rightlogo } from "../../assets/images";
+import { BoxIcon, TickIcon, UserIcon, UsersIcon, MenuIcon } from "../../assets/svg";
 import RatingCard from "../../component/RatingCard";
+import { ArrowForwardIcon, ChevronDownIcon, ChevronRightIcon } from "@chakra-ui/icons";
+import HeroVideo from "../../assets/video/HeroVideo.mp4";
 
 const ratingData = [
   { value: 25, icon: TickIcon, label: "Successful Years" },
@@ -310,6 +15,17 @@ const ratingData = [
 ];
 
 const HeaderSection = () => {
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlay = () => {
+    videoRef.current.play();
+    setIsPlaying(true);
+  };
+
   return (
     <Box
       w="100%"
@@ -320,7 +36,7 @@ const HeaderSection = () => {
       overflow="hidden"
       color="white"
     >
-      {/* LEFT GRADIENT */}
+
       <Box
         position="absolute"
         top="-50px"
@@ -333,7 +49,6 @@ const HeaderSection = () => {
         zIndex={0}
       />
 
-      {/* RIGHT GRADIENT */}
       <Box
         position="absolute"
         top="-50px"
@@ -346,7 +61,6 @@ const HeaderSection = () => {
         zIndex={0}
       />
 
-      {/* LEFT FLOATING LOGO */}
       <Image
         src={Leftlogo}
         position="absolute"
@@ -357,7 +71,6 @@ const HeaderSection = () => {
         zIndex={1}
         pointerEvents="none"
       />
-
 
       <Image
         src={Rightlogo}
@@ -371,45 +84,119 @@ const HeaderSection = () => {
         pointerEvents="none"
       />
 
-
       <Container maxW="container.xl" position="relative" zIndex={2}>
 
-        {/* NAVBAR */}
-        <Flex
-          py={4}
-          align="center"
-          justify="space-between"
-          direction={{ base: "column", md: "row" }}
-          gap={4}
-        >
-          <Text fontSize={{ base: "24px", md: "32px" }}>
+        <Flex py={6} align="center" justify="space-between">
+
+          <Text fontSize={{ base: "20px", md: "28px" }} fontWeight="500">
             albetech
           </Text>
 
           <Image
             src={Albetechlogo}
-            h={{ base: "80px", md: "110px" }}
             alt="Albetech"
+            h={{ base: "60px", md: "90px" }}
           />
 
-          <Image
-            src={Getintouch}
-            h="20px"
-            cursor="pointer"
-            alt="get in touch"
-          />
+          <Flex align="center" gap={6}>
+
+            <Flex align="center" gap="6px" cursor="pointer" role="group">
+              <Box borderBottom="1px solid white">
+                <Text fontSize={{ base: "14px", md: "16px" }}>
+                  Get in Touch
+                </Text>
+              </Box>
+
+              <ArrowForwardIcon
+                boxSize={4}
+                transition="0.3s"
+                _groupHover={{ transform: "translateX(4px)" }}
+              />
+            </Flex>
+
+            <Box cursor="pointer" onClick={() => setIsOpen(!isOpen)}>
+              <MenuIcon width="25px" height="25px" />
+            </Box>
+
+          </Flex>
+
         </Flex>
 
-        {/* HERO CONTENT */}
+        <Collapse in={isOpen} animateOpacity>
+
+         <Flex
+           direction={{ base: "column", md: "row" }}
+             align="center"
+             justify="center"
+             gap={{ base: 6, md: 16, lg: 24 }}
+             py="20px"
+             fontSize={{ base: "18px", md: "22px" }}
+           >
+
+            <Text cursor="pointer">Home</Text>
+
+           <Text cursor="pointer">About Us</Text>
+
+            <Menu>
+
+              <MenuButton
+                 cursor="pointer"
+                 display="flex"
+                 alignItems="center"
+                 gap="4px"
+               >
+                 Our Services <ChevronDownIcon />
+               </MenuButton>
+
+             <MenuList
+                 bg="#061D48"
+                 border="none"
+                 minW={{ base: "200px", md: "260px" }}
+               >
+
+                 <MenuItem
+                   bg="#061D48"
+                   _hover={{ bg: "#2A3D5F" }}
+                   whiteSpace="normal"
+                 >
+                   Web & Mobile Application Development
+                 </MenuItem>
+
+                 <MenuItem
+                   bg="#061D48"
+                   _hover={{ bg: "#2A3D5F" }}
+                 >
+                   Software Engineering
+                 </MenuItem>
+
+                 <MenuItem
+                   bg="#061D48"
+                   _hover={{ bg: "#2A3D5F" }}
+                 >
+                   Albetech Consultancy
+                 </MenuItem>
+
+             </MenuList>
+
+             </Menu>
+
+             <Text cursor="pointer">Contact Us</Text>
+
+          </Flex> 
+
+         </Collapse> 
+
+
+
         <Box textAlign="center" mt={{ base: 10, md: 20 }}>
+
           <Text
             fontSize={{ base: "32px", md: "60px", lg: "92px" }}
             lineHeight={{ base: "42px", md: "70px", lg: "110px" }}
-            fontWeight="400"
           >
             Engineering Your Vision
             <br />
-            Through{" "}
+
             <Text
               as="span"
               bgGradient="linear(to-r, #08A6E1, #13B4D2, #FFFFFF)"
@@ -417,6 +204,7 @@ const HeaderSection = () => {
             >
               Smart Technology
             </Text>
+
           </Text>
 
           <Text
@@ -426,86 +214,59 @@ const HeaderSection = () => {
             maxW="800px"
             mx="auto"
           >
-            Turning ideas into smart digital innovation. Albetech helps you
-            convert bold business visions into reliable, high-performance
-            technology solutions designed for tomorrow.
+            Turning Ideas Into Smart Digital InnovationAlbetech helps you convert bold business visions into
+            reliable, high-performance technology solutions designed for tomorrow.
           </Text>
 
-          <Text mt={6} color="gray.400">
-            Already chosen by the leaders
-          </Text>
-
-          {/* PARTNER LOGOS */}
-          <Flex
-            mt={8}
-            justify="center"
-            wrap="wrap"
-            gap={6}
-          >
-            <Flex align="center" gap={2}>
-              <LogoIcon width="30px" height="30px" />
-              <Text>Logoipsum</Text>
-            </Flex>
-
-            <LogICon width="120px" height="30px" />
-            <Logo width="100px" height="30px" />
-
-            <Flex align="center" gap={2}>
-              <GlobeIcon width="30px" height="30px" />
-              <Text>Logoipsum</Text>
-            </Flex>
-          </Flex>
         </Box>
 
-        {/* VIDEO SECTION */}
-        <Box mt={{ base: 10, md: 20 }}>
-          <Box
-            border="2px solid white"
-            borderRadius="20px"
-            overflow="hidden"
-            w="100%"
-          >
-            <Image
-              src={Vdeo}
-              alt="Hero Video"
-              objectFit="cover"
+        <Box mt={{ base: 10, md: 20 }} position="relative">
+
+          <Box border="2px solid white" borderRadius="20px" overflow="hidden">
+
+            <Box
+              as="video"
+              ref={videoRef}
+              src={HeroVideo}
               w="100%"
+              objectFit="cover"
+              loop
+              playsInline
             />
+
           </Box>
+
+          {!isPlaying && (
+
+            <IconButton
+              icon={<ChevronRightIcon boxSize={10} />}
+              position="absolute"
+              top="50%"
+              left="50%"
+              transform="translate(-50%, -50%)"
+              borderRadius="full"
+              size="lg"
+              bg="white"
+              color="black"
+              _hover={{ bg: "gray.200" }}
+              onClick={handlePlay}
+            />
+
+          )}
+
         </Box>
 
-        {/* RATING SECTION */}
-        <Box
-          mt={{ base: 10, md: 16 }}
-          textAlign="center"
-          px={{ base: 4, md: 10 }}
-        >
-          <Text
-            fontSize={{ base: "20px", md: "36px", lg: "48px" }}
-            mb={4}
-          >
-            Partners | Innovation | Future-Ready Excellence
-          </Text>
-
-          <Text
-            fontSize={{ base: "14px", md: "18px", lg: "22px" }}
-            color="gray.300"
-            maxW="800px"
-            mx="auto"
-            mb={10}
-          >
-            We combine innovation, excellence, and cutting-edge technology to
-            provide tailored IT solutions for your business and future growth.
-          </Text>
+        <Box mt={{ base: 10, md: 16 }} textAlign="center">
 
           <Grid
             templateColumns={{
-              base: "repeat(2, 1fr)",  // 2 on mobile
-              md: "repeat(3, 1fr)",
-              lg: "repeat(5, 1fr)"
+              base: "repeat(2,1fr)",
+              md: "repeat(3,1fr)",
+              lg: "repeat(5,1fr)"
             }}
-            gap={{ base: 3, md: 6 }}
+            gap={6}
           >
+
             {ratingData.map((item, index) => (
               <RatingCard
                 key={index}
@@ -514,11 +275,13 @@ const HeaderSection = () => {
                 icon={item.icon}
               />
             ))}
+
           </Grid>
+
         </Box>
 
-
       </Container>
+
     </Box>
   );
 };
