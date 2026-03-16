@@ -1,5 +1,5 @@
 import React from "react";
-import {Box,Container,Text,Button,Flex,Badge,Input,IconButton,Divider, Grid,InputGroup,InputRightElement,UnorderedList,ListItem,} from "@chakra-ui/react";
+import { Box, Container, Text, Button, Flex, Badge, Input, IconButton, Divider, Grid, InputGroup, InputRightElement, UnorderedList, ListItem, } from "@chakra-ui/react";
 import { BlueBg } from "../../assets/images";
 import {
   FacebookIcon,
@@ -144,15 +144,17 @@ const ContactAndFooter = () => {
 
             </Box>
             <Box textAlign="center">
-
               <Text fontWeight="600" fontSize="18px" mb={4}>
                 Useful links
               </Text>
 
               <Box w="fit-content" mx="auto">
-
-                <UnorderedList spacing={2} color="gray.600" pl="18px">
-
+                <UnorderedList
+                  spacing={2}
+                  color="gray.600"
+                  pl="25px"
+                  textAlign="left"
+                >
                   <ListItem>Home</ListItem>
                   <ListItem>About us</ListItem>
                   <ListItem>Our Services</ListItem>
@@ -160,11 +162,8 @@ const ContactAndFooter = () => {
                   <ListItem>Our Clients</ListItem>
                   <ListItem>Why albetech</ListItem>
                   <ListItem>Contact</ListItem>
-
                 </UnorderedList>
-
               </Box>
-
             </Box>
 
 
