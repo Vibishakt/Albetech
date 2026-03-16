@@ -1,9 +1,4 @@
-
-
 import { Box, Heading, Text, VStack, HStack, Circle, Tag, TagLabel, Flex, } from "@chakra-ui/react";
-
-
-
 const industries = [
   {
     id: "01",
@@ -93,7 +88,6 @@ const IndustriesSection = () => {
             maxW="1200px"
             mx="auto"
             borderBottom="1px"
-            // mb={6}
             px={{ base: 4, md: 8 }}
             py={{ base: 6, md: 8 }}
             bg="rgba(255,255,255,0.04)"

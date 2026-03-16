@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Box, Image, Flex, Text, Grid, Container, Collapse, Menu, MenuButton, MenuList, MenuItem, IconButton } from "@chakra-ui/react";
 import { Albetechlogo, Gradientright, Grradientleft, Herobg, Leftlogo, Rightlogo } from "../../assets/images";
-import { BoxIcon, GlobeIcon, LogICon, Logo, LogoIcon, TickIcon, UserIcon, UsersIcon, MenuIcon } from "../../assets/svg";
+import { BoxIcon, TickIcon, UserIcon, UsersIcon, MenuIcon } from "../../assets/svg";
 import RatingCard from "../../component/RatingCard";
 import { ArrowForwardIcon, ChevronDownIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import HeroVideo from "../../assets/video/HeroVideo.mp4";
