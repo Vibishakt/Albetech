@@ -102,37 +102,7 @@ const RatingCard = ({value,icon: Icon,label,variant,title,description,image,numb
       </Box>
     );
   }
-
   
-  // if (variant === "test") {
-  //   return (
-  //     <Box
-  //       w="100%"
-  //       p={{ base: 5, md: 8 }}
-  //       borderRadius="20px"
-  //       bg="rgba(255,255,255,0.08)"
-  //       backdropFilter="blur(12px)"
-  //     >
-  //       <Flex w="100px">
-  //       <Text color="gray.200" fontSize={{ base: "16px", md: "20px" }}>
-  //         “ {text} ”
-  //       </Text>
-  //       </Flex>
-
-  //       <HStack mt={4} spacing={3}>
-  //         <Avatar size="sm" name={name} />
-
-  //         <VStack align="start" spacing={0} >
-  //           <Text fontSize="14px" fontWeight="600">
-  //             {name}, 
-  //           </Text>
-           
-  //         </VStack>
-  //       </HStack>
-  //     </Box>
-  //   );
-  // }
-
   if (variant === "test") {
   return (
     <Box

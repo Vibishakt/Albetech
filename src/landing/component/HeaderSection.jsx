@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
-import {Box,Image,Flex,Text,Grid,Container,Collapse,Menu,MenuButton,MenuList,MenuItem,IconButton} from "@chakra-ui/react";
-import {Albetechlogo,Gradientright,Grradientleft,Herobg,Leftlogo,Rightlogo} from "../../assets/images";
-import {BoxIcon,GlobeIcon,LogICon,Logo,LogoIcon,TickIcon,UserIcon,UsersIcon,MenuIcon} from "../../assets/svg";
+import { Box, Image, Flex, Text, Grid, Container, Collapse, Menu, MenuButton, MenuList, MenuItem, IconButton } from "@chakra-ui/react";
+import { Albetechlogo, Gradientright, Grradientleft, Herobg, Leftlogo, Rightlogo } from "../../assets/images";
+import { BoxIcon, GlobeIcon, LogICon, Logo, LogoIcon, TickIcon, UserIcon, UsersIcon, MenuIcon } from "../../assets/svg";
 import RatingCard from "../../component/RatingCard";
 import { ArrowForwardIcon, ChevronDownIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import HeroVideo from "../../assets/video/HeroVideo.mp4";
@@ -124,41 +124,69 @@ const HeaderSection = () => {
 
         <Collapse in={isOpen} animateOpacity>
 
-          <Flex justify="center" gap="90px" py="20px" fontSize="22px">
+         <Flex
+           direction={{ base: "column", md: "row" }}
+             align="center"
+             justify="center"
+             gap={{ base: 6, md: 16, lg: 24 }}
+             py="20px"
+             fontSize={{ base: "18px", md: "22px" }}
+           >
 
             <Text cursor="pointer">Home</Text>
 
-            <Text cursor="pointer">About Us</Text>
+           <Text cursor="pointer">About Us</Text>
 
             <Menu>
 
-              <MenuButton cursor="pointer">
-                Our Services <ChevronDownIcon />
-              </MenuButton>
+              <MenuButton
+                 cursor="pointer"
+                 display="flex"
+                 alignItems="center"
+                 gap="4px"
+               >
+                 Our Services <ChevronDownIcon />
+               </MenuButton>
 
-              <MenuList bg="#061D48" border="none">
+             <MenuList
+                 bg="#061D48"
+                 border="none"
+                 minW={{ base: "200px", md: "260px" }}
+               >
 
-                <MenuItem bg="#061D48" _hover={{ bg: "#2A3D5F" }}>
-                  Web & Mobile Application Development
-                </MenuItem>
+                 <MenuItem
+                   bg="#061D48"
+                   _hover={{ bg: "#2A3D5F" }}
+                   whiteSpace="normal"
+                 >
+                   Web & Mobile Application Development
+                 </MenuItem>
 
-                <MenuItem bg="#061D48" _hover={{ bg: "#2A3D5F" }}>
-                  Software Engineering
-                </MenuItem>
+                 <MenuItem
+                   bg="#061D48"
+                   _hover={{ bg: "#2A3D5F" }}
+                 >
+                   Software Engineering
+                 </MenuItem>
 
-                <MenuItem bg="#061D48" _hover={{ bg: "#2A3D5F" }}>
-                  Albetech Consultancy
-                </MenuItem>
+                 <MenuItem
+                   bg="#061D48"
+                   _hover={{ bg: "#2A3D5F" }}
+                 >
+                   Albetech Consultancy
+                 </MenuItem>
 
-              </MenuList>
+             </MenuList>
 
-            </Menu>
+             </Menu>
 
-            <Text cursor="pointer">Contact Us</Text>
+             <Text cursor="pointer">Contact Us</Text>
 
-          </Flex>
+          </Flex> 
 
-        </Collapse>
+         </Collapse> 
+
+
 
         <Box textAlign="center" mt={{ base: 10, md: 20 }}>
 
@@ -186,7 +214,8 @@ const HeaderSection = () => {
             maxW="800px"
             mx="auto"
           >
-            Turning ideas into smart digital innovation.
+            Turning Ideas Into Smart Digital InnovationAlbetech helps you convert bold business visions into
+            reliable, high-performance technology solutions designed for tomorrow.
           </Text>
 
         </Box>
