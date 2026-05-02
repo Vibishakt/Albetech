@@ -35,7 +35,13 @@ organizations make smarter, faster decisions. We work closely with startups, ent
 institutions to analyze challenges, identify opportunities, and design practical strategies that drive 
 sustainable growth.`
     },
-
+      {
+        id: 4,
+        icon: TickyIcon,
+        title: "Staff Augmentation Services",
+        description: `Our staff augmentation services help you quickly bridge skill gaps or scale your team with specialized IT talent—without the burden of traditional hiring. We provide vetted professionals who seamlessly integrate into your workflows, giving you full control while speeding up development. This approach enables your business to stay agile, reduce time-to-market, and focus on innovation while we manage sourcing and onboarding.
+`
+    },
 ];
 
 
