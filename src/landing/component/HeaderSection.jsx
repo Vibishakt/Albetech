@@ -7,11 +7,11 @@ import { ArrowForwardIcon, ChevronDownIcon, ChevronRightIcon } from "@chakra-ui/
 import HeroVideo from "../../assets/video/HeroVideo.mp4";
 
 const ratingData = [
-  { value: 25, icon: TickIcon, label: "Successful Years" },
-  { value: 7, icon: TickIcon, label: "Global Awards" },
-  { value: 2000, icon: BoxIcon, label: "Projects Completed" },
-  { value: 1000, icon: UserIcon, label: "Happy Clients" },
-  { value: 250, icon: UsersIcon, label: "Team Members" }
+  { value: "25+", icon: TickIcon, label: "Successful Years" },
+  { value: "7+", icon: TickIcon, label: "Global Awards" },
+  { value: "2000+", icon: BoxIcon, label: "Projects Completed" },
+  { value: "1000+", icon: UserIcon, label: "Happy Clients" },
+  { value: "250+", icon: UsersIcon, label: "Team Members" }
 ];
 
 const HeaderSection = () => {
@@ -174,6 +174,14 @@ const HeaderSection = () => {
                    _hover={{ bg: "#2A3D5F" }}
                  >
                    Albetech Consultancy
+                 </MenuItem>
+                 
+                 <MenuItem
+                   bg="#061D48"
+                   _hover={{ bg: "#2A3D5F" }}
+                   whiteSpace="normal"
+                 >
+                   Staff Augmentation Services 
                  </MenuItem>
 
              </MenuList>

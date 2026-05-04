@@ -1,38 +1,10 @@
 import React, { useState } from "react";
-import {
-  Box,
-  Container,
-  Flex,
-  Text,
-  Button,
-  Image,
-  IconButton,
-} from "@chakra-ui/react";
+import {Box,Container,Flex,Text,Button,Image,IconButton,} from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 
-import {
-  Client1,
-  Client10,
-  Client2,
-  Client3,
-  Client4,
-  Client5,
-  Client6,
-  Client7,
-  Client8,
-} from "../../assets/images";
+import {Client1,Client10,Client2,Client3,Client4,Client5,Client6,Client7,Client8,} from "../../assets/images";
 
-const images = [
-  Client1,
-  Client2,
-  Client3,
-  Client4,
-  Client5,
-  Client6,
-  Client7,
-  Client8,
-  Client10,
-];
+const images = [Client1,Client2,Client3,Client4,Client5,Client6,Client7,Client8,Client10,];
 
 const OurClientsSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -57,7 +29,6 @@ const OurClientsSection = () => {
       py={{ base: 16, md: 28 }}
       overflow="hidden"
     >
-      {/* Background Heading */}
       <Text
         position="absolute"
         top={{ base: "-20px", md: "-80px", lg: "-80px" }}
