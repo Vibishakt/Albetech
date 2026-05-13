@@ -1,5 +1,6 @@
 export const ROUTE_URL={
     LANDING:{
-        HEADER:"/"
+        HEADER:"/",
+        ABOUT:"/about"
     }
 }
