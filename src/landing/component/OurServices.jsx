@@ -29,19 +29,18 @@ testing, deployment, and long-term support.`
     {
         id: 3,
         icon: TickyIcon,
-        title: "Albetech Consultancy",
+        title: "IT Consultancy",
         description: `Albetech Consultancy provides expert-driven technology and business advisory services that help 
 organizations make smarter, faster decisions. We work closely with startups, enterprises, and 
 institutions to analyze challenges, identify opportunities, and design practical strategies that drive 
 sustainable growth.`
     },
-      {
+    {
         id: 4,
         icon: TickyIcon,
         title: "Staff Augmentation Services",
-        description: `Our staff augmentation services help you quickly bridge skill gaps or scale your team with specialized IT talent—without the burden of traditional hiring. We provide vetted professionals who seamlessly integrate into your workflows, giving you full control while speeding up development. This approach enables your business to stay agile, reduce time-to-market, and focus on innovation while we manage sourcing and onboarding.
-`
-    },
+        description: `Whether you need to fill a skill gap or scale your team for a critical project, our staff augmentation services provide vetted IT professionals who integrate seamlessly into your workflows. We help you stay agile, accelerate development, reduce hiring overhead, and focus on innovation while we manage sourcing and onboarding`
+    }
 ];
 
 
@@ -98,6 +97,7 @@ const OurServices = () => {
                         flex={{ base: "1 1 100%", sm: "1 1 80%", md: "1 1 45%", lg: "0 0 520px" }}
                         maxW="520px"
                         w="100%"
+                        display="flex"
                     >
                         <RatingCard
                             variant="service"

@@ -1,7 +1,6 @@
 import React from 'react'
 import HeaderSection from './HeaderSection'
 import OurServices from './OurServices'
-import IndustriesSection from './IndustriesSection'
 import WorkshowCase from './WorkshowCase'
 import OurProcess from './OurProcess'
 import TestimonialsSection from './TestimonialsSection'
@@ -9,6 +8,9 @@ import OurClientsSection from './OurclientsSection'
 import ContactAndFooter from './ContactAndFooter'
 import {Box} from '@chakra-ui/react'
 import Why from "./Why";
+import IndustriesSection from './IndustriesSection'
+
+
 
 const HomeLander = () => {
   return (
@@ -20,7 +22,10 @@ const HomeLander = () => {
     <WorkshowCase/>
     <OurProcess/>
     <TestimonialsSection/>
+
     <OurClientsSection/>
+   
+    
     <ContactAndFooter/>
 
   </Box>

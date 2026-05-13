@@ -1,5 +1,11 @@
 import React from "react";
 import {Box,Flex,IconButton,Image,Text,VStack,HStack,Avatar } from "@chakra-ui/react";
+import { keyframes } from "@emotion/react";
+
+const shimmer = keyframes`
+  0% { transform: translateX(-150%) skewX(-20deg); }
+  100% { transform: translateX(350%) skewX(-20deg); }
+`;
 
 const RatingCard = ({value,icon: Icon,label,variant,title,description,image,number,name,text}) => {
 
@@ -7,6 +13,7 @@ const RatingCard = ({value,icon: Icon,label,variant,title,description,image,numb
     return (
       <Box
         w="100%"
+        h="100%"
         p={{ base: 4, md: 6 }}
         bg="rgba(255, 255, 255, 0.15)"
         border="1px solid rgba(255, 255, 255, 0.76)"
@@ -16,7 +23,7 @@ const RatingCard = ({value,icon: Icon,label,variant,title,description,image,numb
           transform: "translateY(-4px)"
         }}
       >
-        <Flex direction="column" gap={3}>
+        <Flex direction="column" gap={3} h="100%">
           <Flex align="center" gap={2}>
             {Icon && (
               <IconButton
@@ -66,36 +73,42 @@ const RatingCard = ({value,icon: Icon,label,variant,title,description,image,numb
 
   if (variant === "process") {
     return (
-      
       <Box
         w="100%"
-        p={{ base: 5, md: 8 }}
-        borderRadius="20px"
+        h="100%"
+        p={{ base: 5, md: 6 }}
+        borderRadius="16px"
         bg="#0A0F1A"
+        border="1px solid rgba(255,255,255,0.08)"
         transition="0.3s"
-        _hover={{ transform: "translateY(-6px)" }}
+        display="flex"
+        flexDirection="column"
+        _hover={{ transform: "translateY(-4px)" }}
       >
-        <Text fontSize={{ base: "18px", md: "22px" }} color="white"   textAlign="start">
+        <Text
+          fontSize={{ base: "14px", md: "16px" }}
+          color="white"
+          textAlign="start"
+          mb={1}
+        >
           {number}
         </Text>
 
         <Text
-          fontSize={{ base: "18px", md: "24px" }}
-          fontWeight="600"
+          fontSize={{ base: "18px", md: "20px" }}
+          fontWeight="700"
           color="white"
-          mb={3}
-           textAlign="start"
-          
+          textAlign="start"
+          mb={4}
         >
           {title}
         </Text>
 
         <Text
-          fontSize={{ base: "13px", md: "14px" }}
-          color="whiteAlpha.700"
-          lineHeight="22px"
+          fontSize={{ base: "13px", md: "13px" }}
+          color="whiteAlpha.600"
+          lineHeight="1.7"
           textAlign="start"
-          mt={10}
         >
           {description}
         </Text>
@@ -147,8 +160,23 @@ const RatingCard = ({value,icon: Icon,label,variant,title,description,image,numb
       border="1px solid"
       borderColor="whiteAlpha.300"
       bgGradient="linear(to-br, #0E65BF, #000000, #0A528F)"
+      position="relative"
+      overflow="hidden"
     >
-      <Flex direction="column">
+      {/* shimmer sweep */}
+      <Box
+        position="absolute"
+        top="-50%"
+        left="0"
+        w="40%"
+        h="200%"
+        bg="linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent)"
+        animation={`${shimmer} 2.4s ease-in-out infinite`}
+        pointerEvents="none"
+        zIndex={1}
+      />
+
+      <Flex direction="column" position="relative" zIndex={2}>
         <Flex justify="space-between" align="center" mb={3}>
           <Text
             fontWeight="semibold"

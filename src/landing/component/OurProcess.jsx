@@ -39,7 +39,7 @@ optimization—ensuring your solution evolves, performs, and scales with your bu
 const OurProcess = () => {
     return (
         <Box
-            bgGradient="linear(to-b, #02141F, #031F33)"
+            bg="#060A12"
             py={{ base: 10, md: 16 }}
             px={{ base: 4, md: 0 }}
             color="white"
