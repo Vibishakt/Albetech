@@ -151,17 +151,22 @@ const HeaderSection = () => {
 
           <Flex align="center" gap={6}>
 
-            <Flex align="center" gap="6px" cursor="pointer" role="group">
-              <Box borderBottom="1px solid white">
-                <Text fontSize={{ base: "14px", md: "16px" }}>
-                  Get in Touch
-                </Text>
-              </Box>
-
+            <Flex
+              align="center"
+              gap="6px"
+              cursor="pointer"
+              role="group"
+              borderBottom="1px solid white"
+              pb="2px"
+            >
+              <Text fontSize={{ base: "14px", md: "16px" }}>
+                Get in Touch
+              </Text>
               <ArrowForwardIcon
                 boxSize={4}
-                transition="0.3s"
-                _groupHover={{ transform: "translateX(4px)" }}
+                transform="rotate(-45deg)"
+                transition="transform 0.3s"
+                _groupHover={{ transform: "rotate(-45deg) translate(2px, -2px)" }}
               />
             </Flex>
 

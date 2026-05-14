@@ -108,7 +108,7 @@ const RatingCard = ({value,icon: Icon,label,variant,title,description,image,numb
           fontSize={{ base: "13px", md: "13px" }}
           color="whiteAlpha.600"
           lineHeight="1.7"
-          textAlign="start"
+          textAlign="justify"
         >
           {description}
         </Text>

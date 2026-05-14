@@ -1,5 +1,5 @@
-import React from "react";
-import {Box,Flex,Text,Container,Image,Menu,MenuButton,MenuList,MenuItem,IconButton,Drawer,DrawerOverlay,DrawerContent,DrawerCloseButton,DrawerBody,useDisclosure,} from "@chakra-ui/react";
+import React, { useState } from "react";
+import {Box,Flex,Text,Container,Image,Menu,MenuButton,MenuList,MenuItem,IconButton,Drawer,DrawerOverlay,DrawerContent,DrawerCloseButton,DrawerBody,useDisclosure,Collapse,} from "@chakra-ui/react";
 import { Link, useLocation } from "react-router-dom";
 import {ChevronDownIcon,EmailIcon,PhoneIcon,HamburgerIcon,} from "@chakra-ui/icons";
 import logoabt from "../../assets/images/logoabt.png";
@@ -26,6 +26,7 @@ const socialIcons = [
 const Navbar = () => {
   const { pathname } = useLocation();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [servicesOpen, setServicesOpen] = useState(false);
 
   const navLinks = [
     { label: "HOME", path: ROUTE_URL.LANDING.HEADER },
@@ -229,16 +230,18 @@ const Navbar = () => {
 
           <DrawerBody pt={20}>
             <Flex direction="column" gap={6}>
-              {/* LINKS */}
-              {navLinks.map(({ label, path }) => {
-                const isActive = pathname === path;
 
+              {/* HOME, ABOUT US */}
+              {navLinks.slice(0, 2).map(({ label, path }) => {
+                const isActive = pathname === path;
                 return (
                   <Link key={label} to={path} onClick={onClose}>
                     <Text
                       color={isActive ? "#1e6ef5" : "white"}
                       fontSize="16px"
                       fontWeight="600"
+                      _hover={{ color: "#1e6ef5" }}
+                      transition="0.2s"
                     >
                       {label}
                     </Text>
@@ -246,38 +249,83 @@ const Navbar = () => {
                 );
               })}
 
-              {/* MOBILE SERVICES */}
+              {/* MOBILE SERVICES DROPDOWN */}
               <Box>
-                <Text
-                  color="white"
-                  fontSize="16px"
-                  fontWeight="600"
-                  mb={3}
+                <Flex
+                  align="center"
+                  justify="space-between"
+                  cursor="pointer"
+                  onClick={() => setServicesOpen((prev) => !prev)}
+                  _hover={{ opacity: 0.85 }}
+                  transition="0.2s"
                 >
-                  OUR SERVICES
-                </Text>
-
-                <Flex direction="column" gap={3} pl={2}>
-                  {serviceItems.map((item) => (
-                    <Text
-                      key={item}
-                      color="#c9d5ea"
-                      fontSize="14px"
-                    >
-                      {item}
-                    </Text>
-                  ))}
+                  <Text color="white" fontSize="16px" fontWeight="600">
+                    OUR SERVICES
+                  </Text>
+                  <ChevronDownIcon
+                    color="white"
+                    boxSize={5}
+                    transform={servicesOpen ? "rotate(180deg)" : "rotate(0deg)"}
+                    transition="transform 0.25s"
+                  />
                 </Flex>
+
+                <Collapse in={servicesOpen} animateOpacity>
+                  <Flex
+                    direction="column"
+                    gap={0}
+                    mt={3}
+                    pl={0}
+                    borderLeft="2px solid rgba(255,255,255,0.12)"
+                    ml={1}
+                  >
+                    {serviceItems.map((item) => (
+                      <Text
+                        key={item}
+                        color="#c9d5ea"
+                        fontSize="14px"
+                        fontWeight="400"
+                        py={2}
+                        pl={4}
+                        _hover={{ color: "white" }}
+                        cursor="pointer"
+                        transition="0.15s"
+                        onClick={onClose}
+                      >
+                        {item}
+                      </Text>
+                    ))}
+                  </Flex>
+                </Collapse>
               </Box>
+
+              {/* CONTACT US */}
+              {navLinks.slice(2).map(({ label, path }) => {
+                const isActive = pathname === path;
+                return (
+                  <Link key={label} to={path} onClick={onClose}>
+                    <Text
+                      color={isActive ? "#1e6ef5" : "white"}
+                      fontSize="16px"
+                      fontWeight="600"
+                      _hover={{ color: "#1e6ef5" }}
+                      transition="0.2s"
+                    >
+                      {label}
+                    </Text>
+                  </Link>
+                );
+              })}
 
               {/* SOCIAL */}
               <Flex gap={3} pt={4}>
                 {socialIcons.map(({ Icon, label }) => (
-                  <Box key={label}>
+                  <Box key={label} cursor="pointer" opacity={0.85} _hover={{ opacity: 1 }}>
                     <Icon width="28px" height="28px" />
                   </Box>
                 ))}
               </Flex>
+
             </Flex>
           </DrawerBody>
         </DrawerContent>

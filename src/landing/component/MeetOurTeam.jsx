@@ -1,15 +1,15 @@
 import { Box, Heading, Text, SimpleGrid, VStack, Image } from "@chakra-ui/react";
-import { imgg, maya, msuhail, orisir,T1, T2, T3, T6, T7 } from "../../assets/images";
+import { imgg, JOM,  KAVERI,  maya, msuhail, orisir,SOORAJ, sreeja, T7 } from "../../assets/images";
 
 const teamMembers = [
   { name: "Albert orestes", role: "CEO & Founder", image:orisir },
   { name: "Unnimaya krishnan", role: "CTO", image: maya },
   { name: "Muhammed Suhail", role: "Managing partner/HR", image: msuhail },
   { name: "Sreekutty", role: "Accountant", image: imgg },
-  { name: "Sreekutty gs", role: "Project Manager", image: T1 },
-  { name: "Rahul Sharma", role: "Backend Developer", image: T7 },
-  { name: "Priya Nair", role: "Frontend Developer", image: T1 },
-  { name: "Anna Schmidt", role: "QA Engineer", image: T7 },
+  { name: "Jom J Jose", role: "Senior Developer", image: JOM },
+  { name: "Sooraj G.R", role: "Business Analyst", image: SOORAJ },
+  { name: "Kaveri K.K", role: "Digital marketing & business development professional", image: KAVERI },
+  { name: "Sreeja J", role: "Developer", image: sreeja },
 ];
 
 const MeetOurTeam = () => {

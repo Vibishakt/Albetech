@@ -110,37 +110,51 @@ const ContactAndFooter = () => {
             mb={{ base: 8, md: 10 }}
           >
             {/* Col 1 — Tagline + Email — full width on mobile/tablet */}
-            <Box gridColumn={{ base: "1 / -1", lg: "auto" }}>
+            <Box
+              gridColumn={{ base: "1 / -1", lg: "auto" }}
+              textAlign={{ base: "center", lg: "left" }}
+            >
               <Text
-                fontSize={{ base: "16px", md: "20px", lg: "26px" }}
+                fontSize={{ base: "13px", sm: "15px", md: "18px", lg: "22px" }}
                 fontWeight="400"
-                color="gray.700"
+                color="gray.600"
+                letterSpacing="0.02em"
+                mb={1}
               >
                 Let’s Start a Project
               </Text>
               <Text
-                fontSize={{ base: "34px", sm: "42px", md: "54px", lg: "62px" }}
+                fontSize={{ base: "clamp(28px, 8vw, 40px)", sm: "44px", md: "54px", lg: "62px" }}
                 fontWeight="700"
                 lineHeight="1"
-                mb={6}
+                mb={{ base: 4, md: 6 }}
+                letterSpacing="-0.02em"
+                wordBreak="break-word"
               >
                 TOGETHER
               </Text>
-              <Box maxW={{ base: "100%", sm: "360px" }}>
-                <InputGroup>
+              <Box
+                maxW={{ base: "100%", sm: "340px", md: "360px" }}
+                mx={{ base: "auto", lg: "0" }}
+              >
+                <InputGroup size="md">
                   <Input
                     placeholder="Enter your email address"
                     bg="white"
-                    h="50px"
+                    h={{ base: "44px", md: "50px" }}
                     borderRadius="8px"
-                    fontSize={{ base: "13px", md: "14px" }}
+                    fontSize={{ base: "12px", md: "14px" }}
+                    pr="48px"
+                    _placeholder={{ color: "gray.400" }}
                   />
-                  <InputRightElement h="100%">
+                  <InputRightElement h="100%" w="44px">
                     <IconButton
-                      icon={<SendIcon width="18px" height="18px" />}
+                      icon={<SendIcon width="16px" height="16px" />}
                       aria-label="send"
                       size="sm"
-                      bg="white"
+                      bg="transparent"
+                      _hover={{ bg: "gray.100" }}
+                      minW="auto"
                     />
                   </InputRightElement>
                 </InputGroup>
