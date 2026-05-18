@@ -1,5 +1,5 @@
 import { Box, Heading, Text, SimpleGrid, VStack, Image } from "@chakra-ui/react";
-import { imgg, JOM,  KAVERI,  maya, msuhail, orisir,SOORAJ, sreeja, T7 } from "../../assets/images";
+import { imgg, JOM,     KAVERIII,     maya, msuhail, orisir,SOORAJ, sreeja} from "../../assets/images";
 
 const teamMembers = [
   { name: "Albert orestes", role: "CEO & Founder", image:orisir },
@@ -8,7 +8,7 @@ const teamMembers = [
   { name: "Sreekutty", role: "Accountant", image: imgg },
   { name: "Jom J Jose", role: "Senior Developer", image: JOM },
   { name: "Sooraj G.R", role: "Business Analyst", image: SOORAJ },
-  { name: "Kaveri K.K", role: "Digital marketing & business development professional", image: KAVERI },
+  { name: "Kaveri K.K", role: "Digital marketing consultant", image: KAVERIII },
   { name: "Sreeja J", role: "Developer", image: sreeja },
 ];
 

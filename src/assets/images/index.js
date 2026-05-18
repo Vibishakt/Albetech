@@ -32,18 +32,16 @@ import Gosuas from './Gosuas.avif';
 import Abtrect from './Abtrect.png';
 import ourpartners from './ourpartners.png';
 import maya from './maya.jpeg';
-import T7 from './T7.png';
 import msuhail from './msuhail.jpeg';
 import orisir from './orisir.PNG';
 import imgg from './imgg.PNG';
 import JOM from './JOM.jpeg';
 import SOORAJ from './SOORAJ.jpeg';
-import KAVERI from './KAVERI.PNG';
 import sreeja from './sreeja.jpeg';
-
+import KAVERIII from './KAVERIII.jpeg';
 
 
 export{
     Herobg,Albetechlogo,Gradientright,Grradientleft,Leftlogo,Rightlogo,Getintouch,Vdeo,bgTwo,Android,Iosdevelopment,Mernstack,Enterprise,Webapplication,cardimg,carouselimg,carouselimg2,BlueBg,Client1,Client2,Client3,Client4,Client5,Client6,Client7,Client8,Client10,selektup,Gosuas
-,Client11,Abtrect,ourpartners,maya,T7,msuhail,orisir,imgg,JOM,SOORAJ,KAVERI,sreeja
+,Client11,Abtrect,ourpartners,maya,msuhail,orisir,imgg,JOM,SOORAJ,sreeja,KAVERIII
 }
