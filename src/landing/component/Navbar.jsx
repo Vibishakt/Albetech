@@ -17,7 +17,33 @@ const serviceItems = [
   "Staff Augmentation Services",
 ];
 
-const sectorItems = ["Healthcare", "Education", "Retail", "Logistics", "Manufacturing", "Hospitality"];
+const sectorGroups = [
+  {
+    title: "HEALTH & LEARNING",
+    items: [
+      { name: "Healthcare", icon: <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z" /> },
+      { name: "Education", icon: <path d="M22 10L12 5 2 10l10 5 10-5zM6 12v5c3 3 9 3 12 0v-5" /> },
+    ],
+  },
+  {
+    title: "COMMERCE & OPERATIONS",
+    items: [
+      { name: "Retail & Ecommerce", icon: <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0" /> },
+      { name: "Logistics", icon: (<><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7z" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></>) },
+      { name: "Real Estate", icon: <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM9 22V12h6v10" /> },
+    ],
+  },
+  {
+    title: "LIFESTYLE & GROWTH",
+    items: [
+      { name: "Hospitality", icon: <path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9" /> },
+      { name: "Travel & Tourism", icon: <path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z" /> },
+      { name: "Startups", icon: <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09zM12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2zM9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" /> },
+    ],
+  },
+];
+
+const sectorItems = sectorGroups.flatMap((g) => g.items.map((i) => i.name));
 
 const navLinks = [
   { label: "Home", path: ROUTE_URL.LANDING.HEADER },
@@ -104,11 +130,41 @@ const Navbar = () => {
                       <MenuButton as={Text} cursor="pointer" onClick={() => setClicked(label)} {...textProps}>
                         {label} <ChevronDownIcon boxSize={5} />
                       </MenuButton>
-                      <MenuList bg="white" borderRadius="12px" border="1px solid #E3E8F4" boxShadow="0 12px 30px rgba(28,57,142,0.15)">
-                        {items.map((item) => (
-                          <MenuItem key={item} color={NAVY} fontSize="14px" _hover={{ bg: "#EEF2FB" }}>{item}</MenuItem>
-                        ))}
-                      </MenuList>
+                      {label === "Sectors" ? (
+                        <MenuList bg="white" borderRadius="20px" border="none" boxShadow="0 20px 50px rgba(15,34,89,0.18)"
+                          w="1100px" maxW="calc(100vw - 32px)" p="28px" mt="14px">
+                          <Flex gap="36px" align="flex-start">
+                            {sectorGroups.map((group) => (
+                              <Box key={group.title} flex="1" minW={0}>
+                                <Flex align="center" gap="8px" pb="14px" mb="10px" borderBottom="1px solid #E3E8F4"
+                                  color="#3B5BDB" fontSize="14px" fontWeight={600} letterSpacing="0.06em">
+                                  <Icon viewBox="0 0 24 24" boxSize="16px" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
+                                  </Icon>
+                                  {group.title}
+                                </Flex>
+                                {group.items.map(({ name, icon }) => (
+                                  <MenuItem key={name} bg="transparent" color="#0B1B4D" fontSize="17px" fontWeight={400} px="12px" py="10px"
+                                    borderRadius="12px" _hover={{ bg: "#F4F6FB", color: NAVY }} _focus={{ bg: "#F4F6FB" }}>
+                                    <Flex w="36px" h="36px" mr="16px" borderRadius="10px" bg="#EEF2FB" color="#3A4A78" align="center" justify="center" flexShrink={0}>
+                                      <Icon viewBox="0 0 24 24" boxSize="18px" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                                        {icon}
+                                      </Icon>
+                                    </Flex>
+                                    {name}
+                                  </MenuItem>
+                                ))}
+                              </Box>
+                            ))}
+                          </Flex>
+                        </MenuList>
+                      ) : (
+                        <MenuList bg="#F8F9FF" borderRadius="12px" border="1px solid #E3E8F4" boxShadow="0 12px 30px rgba(28,57,142,0.15)">
+                          {items.map((item) => (
+                            <MenuItem key={item} color={NAVY} fontSize="14px" _hover={{ bg: "#EEF2FB" }}>{item}</MenuItem>
+                          ))}
+                        </MenuList>
+                      )}
                     </Menu>
                   );
                 }
