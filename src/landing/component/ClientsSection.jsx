@@ -1,7 +1,6 @@
 import React from "react";
 import { Box, Flex, Text, Container, Button, Image, Icon } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
-import Client1 from "../../assets/images/Client1.png";
 import Client2 from "../../assets/images/Client2.png";
 import Client3 from "../../assets/images/Client3.png";
 import Client4 from "../../assets/images/Client4.png";
@@ -9,15 +8,14 @@ import Client5 from "../../assets/images/Client5.png";
 import Client6 from "../../assets/images/Client6.png";
 import Client7 from "../../assets/images/Client7.png";
 import Client8 from "../../assets/images/Client8.png";
-import Client9 from "../../assets/images/Client9.png";
 import Client10 from "../../assets/images/Client10.png";
 import Client11 from "../../assets/images/Client11.png";
+import Client12 from "../../assets/images/Client12.png";
 
 const NAVY = "#1C398E";
 
 // Add a `src` (imported logo) to any entry to show the real logo instead of the placeholder.
 const clients = [
-  { name: "ICTAK", src: Client1 },
   { name: "Kerala GST", src: Client2 },
   { name: "Socio Topper's", src: Client3 },
   { name: "Medland", src: Client4 },
@@ -25,9 +23,9 @@ const clients = [
   { name: "Sopetel Technologies", src: Client6 },
   { name: "Empower Path Services", src: Client7 },
   { name: "MSA Olymp Star", src: Client8 },
-  { name: "IAS Mentor", src: Client9 },
   { name: "oreZ", src: Client10 },
   { name: "revAPI", src: Client11 },
+  { name: "IITM Pravartak", src: Client12 },
 ];
 const platforms = Array.from({ length: 13 }, (_, i) => ({ name: `Platform ${i + 1}`, src: null }));
 
