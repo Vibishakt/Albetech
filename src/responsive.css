@@ -1,0 +1,92 @@
+/* Shared responsive layer for all design pages (mobile + tablet).
+   Selectors are prefixed with `body` so they win over the per-page <style> blocks. */
+
+html { -webkit-text-size-adjust: 100%; }
+body img, body video, body svg { max-width: 100%; }
+body img, body video { height: auto; }
+
+/* ---------- Header / navigation ---------- */
+body .hd-burger { display: none; }
+
+@media (max-width: 1100px) {
+  body .tb-in { justify-content: center; text-align: center; }
+  body .tb-left { justify-content: center; gap: 8px 18px; }
+
+  body .hd { position: sticky; top: 0; z-index: 100; }
+  body .hd-in { flex-wrap: wrap; padding-top: 12px; padding-bottom: 12px; gap: 0; }
+  body .hd-logo { order: 1; }
+
+  body .hd-burger {
+    order: 2; display: inline-flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+    width: 44px; height: 44px; padding: 0; margin-left: auto;
+    background: #fff; border: 1px solid #D8DFF0; border-radius: 12px; cursor: pointer;
+  }
+  body .hd-burger span { display: block; width: 20px; height: 2px; border-radius: 2px; background: #1E3A8A; transition: transform .25s ease, opacity .2s ease; }
+  body .hd.menu-open .hd-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  body .hd.menu-open .hd-burger span:nth-child(2) { opacity: 0; }
+  body .hd.menu-open .hd-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  body .hd-nav, body .hd-cta { display: none; width: 100%; }
+  body .hd.menu-open .hd-nav {
+    order: 3; display: flex; flex-direction: column; align-items: stretch; flex-wrap: nowrap; gap: 0;
+    margin-top: 12px; border-top: 1px solid #E6EAF3;
+    max-height: calc(100vh - 190px); max-height: calc(100dvh - 190px); overflow-y: auto; overscroll-behavior: contain;
+  }
+  body .hd.menu-open .hd-cta { order: 4; display: flex; flex-direction: column; align-items: stretch; gap: 10px; padding: 14px 0 4px; }
+  body .hd.menu-open .hd-cta a { justify-content: center; text-align: center; }
+
+  body .hd-nav > .hd-link, body .hd-nav > .svc { padding: 0; border-bottom: 1px solid #EEF1F8; }
+  body .hd-nav > .hd-link { display: flex; padding: 14px 4px; font-size: 15px; }
+  body .hd-nav .svc { display: block; }
+  body .hd-nav .svc-btn { width: 100%; justify-content: space-between; padding: 14px 4px; font-size: 15px; }
+
+  /* mega menus become in-flow accordions */
+  body .hd-nav .mega {
+    position: static; width: 100%; padding-top: 0; transform: none; display: none; opacity: 1; visibility: visible;
+  }
+  body .hd-nav .svc.open .mega { display: block; transform: none; padding-bottom: 12px; }
+  body .hd-nav .mega > div { box-shadow: none !important; border-radius: 12px !important; padding: 14px !important; grid-template-columns: 1fr !important; }
+}
+
+/* ---------- Shared fluid tweaks ---------- */
+@media (max-width: 767px) {
+  body .tb { font-size: 12px; }
+  body .tb-soc { justify-content: center; }
+}
+
+/* Clients grid: two per row on phones (calc(50% - gap) wrapped on rounding) */
+@media (max-width: 767px) {
+  body .cl-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; justify-items: stretch; }
+  body .cl-card { width: auto; height: auto; aspect-ratio: 1 / 1; }
+}
+
+/* Hero title words are inline-block spans with no whitespace between them */
+body .ah-title .word { margin-right: .26em; }
+body .ah-title .word:last-child { margin-right: 0; }
+
+/* About: Mission/Vision/Values — avoid an orphaned third card on tablets */
+@media (min-width: 561px) and (max-width: 930px) {
+  body div:has(> .mvv-card) > .mvv-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+
+/* Team grid: 4 columns on tablet, 2 on phones */
+@media (min-width: 561px) and (max-width: 900px) {
+  body .tm-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px 12px; }
+}
+
+/* Touch screens have no hover: keep team names visible and drop the scale-on-hover jump */
+@media (max-width: 900px), (hover: none) {
+  body .tm-info, body .tm-grid:hover .tm-feat:not(:hover) .tm-info { transform: none; padding: 10px 12px; background: linear-gradient(180deg, rgba(39,62,214,.0), rgba(12,22,140,.92) 40%); }
+  body .tm-name { font-size: 14px; }
+  body .tm-role { font-size: 11.5px; }
+  body .tm-card:hover, body .tm-feat { transform: none; }
+}
+
+/* Locations / roles cards: plain `1fr` tracks can grow past the viewport on narrow phones */
+@media (max-width: 760px) {
+  body .rc-grid, body .gp-grid { grid-template-columns: minmax(0, 1fr); }
+  body .gp-card { padding: 24px 18px 22px; }
+  body .gp-head { flex-wrap: wrap; }
+  body .gp-name { font-size: 19px; }
+  body .gp-role { flex-wrap: wrap; }
+}
