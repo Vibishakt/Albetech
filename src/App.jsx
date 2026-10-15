@@ -9,6 +9,7 @@ import CareersPage from './design/CareersPage';
 import OpenRolesPage from './design/OpenRolesPage';
 import DepartmentsPage from './design/DepartmentsPage';
 import LocationsPage from './design/LocationsPage';
+import ServicesPage from './design/ServicesPage';
 
 function closeMobileMenu() {
   document.querySelectorAll('.hd.menu-open').forEach((el) => el.classList.remove('menu-open'));
@@ -61,6 +62,7 @@ function App() {
         <Route path={ROUTE_URL.LANDING.OPEN_ROLES} element={<OpenRolesPage />} />
         <Route path={ROUTE_URL.LANDING.DEPARTMENTS} element={<DepartmentsPage />} />
         <Route path={ROUTE_URL.LANDING.LOCATIONS} element={<LocationsPage />} />
+        <Route path={ROUTE_URL.LANDING.SERVICES} element={<ServicesPage />} />
       </Routes>
     </BrowserRouter>
   )

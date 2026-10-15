@@ -67,8 +67,7 @@ const socialIcons = [
   { label: "Facebook", svg: <path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z" /> },
   { label: "Instagram", svg: (<><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" /></>) },
   { label: "LinkedIn", svg: (<><rect x="3" y="3" width="18" height="18" rx="3" /><path d="M8 11v5M8 8v.01M12 16v-5M12 13a2.5 2.5 0 0 1 5 0v3" /></>) },
-  { label: "YouTube", svg: (<><rect x="3" y="5" width="18" height="14" rx="4" /><path d="M10 9.5v5l4.5-2.5z" /></>) },
-  { label: "Behance", svg: <path d="M3 7h5a2.5 2.5 0 0 1 0 5H3zM3 12h5.5a2.5 2.5 0 0 1 0 5H3zM14 8h6M14.5 14h5.5a2.7 2.7 0 1 0-5.5 0 2.7 2.7 0 0 0 5 1.5" /> },
+  { label: "Threads", svg: (<><path d="M17.5 9.5C16.8 6.2 14.8 4.5 12 4.5c-3.6 0-6 2.7-6 7.5s2.4 7.5 6 7.5c3 0 5-1.6 5-4 0-2.2-1.8-3.2-4-3.2-1.7 0-3 .8-3 2.1 0 1.1.9 1.8 2.1 1.8 2 0 3-1.5 3-4.2 0-.6 0-1.2-.1-1.6" /></>) },
 ];
 
 const topLinkStyle = { color: NAVY, fontSize: "14px" };
