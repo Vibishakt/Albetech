@@ -8,9 +8,6 @@ import { ROUTE_URL } from "../../common/routeUrl";
 const quickLinks = [
   { label: "Home", to: ROUTE_URL.LANDING.HEADER },
   { label: "About Us", to: ROUTE_URL.LANDING.ABOUT },
-  // { label: "Life @ Albetech", to: "#" },
-  // { label: "Clientele", to: "#" },
-  { label: "Blog", to: "#" },
   { label: "Careers", to: "#" },
   { label: "Contact Us", to: "#" },
 ];
