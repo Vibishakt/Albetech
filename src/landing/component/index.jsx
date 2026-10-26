@@ -1,28 +1,33 @@
 import React from 'react'
 import HeaderSection from './HeaderSection'
-import OurServices from './OurServices'
-import IndustriesSection from './IndustriesSection'
-import WorkshowCase from './WorkshowCase'
-import OurProcess from './OurProcess'
-import TestimonialsSection from './TestimonialsSection'
-import OurClientsSection from './OurclientsSection'
+import ServicesTicker from './ServicesTicker'
+import CustomSolutions from './CustomSolutions'
+import DesignAgency from './DesignAgency'
+import IndustriesWeServe from './IndustriesWeServe'
+import EnterpriseDivisions from './EnterpriseDivisions'
+import MarqueeBanner from './MarqueeBanner'
+import WorkingCycle from './WorkingCycle'
+import TechnologiesWeMaster from './TechnologiesWeMaster'
+import OurPartnersChannels from './OurPartnersChannels'
+import ClientsSection from './ClientsSection'
 import ContactAndFooter from './ContactAndFooter'
 import {Box} from '@chakra-ui/react'
-import Why from "./Why";
 
 const HomeLander = () => {
   return (
   <Box minH="100vh" w="full" bg="black">
     <HeaderSection/>
-    <OurServices/>
-    <IndustriesSection/>
-    <Why/>
-    <WorkshowCase/>
-    <OurProcess/>
-    <TestimonialsSection/>
-    <OurClientsSection/>
+    <ServicesTicker/>
+    <CustomSolutions/>
+    <DesignAgency/>
+    <IndustriesWeServe/>
+    <EnterpriseDivisions/>
+    <MarqueeBanner/>
+    <WorkingCycle/>
+    <TechnologiesWeMaster/>
+    <OurPartnersChannels/>
+    <ClientsSection/>
     <ContactAndFooter/>
-
   </Box>
   )
 }

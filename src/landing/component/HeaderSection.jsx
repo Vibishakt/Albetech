@@ -1,289 +1,95 @@
-import React, { useState, useRef } from "react";
-import { Box, Image, Flex, Text, Grid, Container, Collapse, Menu, MenuButton, MenuList, MenuItem, IconButton } from "@chakra-ui/react";
-import { Albetechlogo, Gradientright, Grradientleft, Herobg, Leftlogo, Rightlogo } from "../../assets/images";
-import { BoxIcon, TickIcon, UserIcon, UsersIcon, MenuIcon } from "../../assets/svg";
-import RatingCard from "../../component/RatingCard";
-import { ArrowForwardIcon, ChevronDownIcon, ChevronRightIcon } from "@chakra-ui/icons";
-import HeroVideo from "../../assets/video/HeroVideo.mp4";
+import React from "react";
+import { Box, Image, Flex, Text, Grid, Container, Button, Icon } from "@chakra-ui/react";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
+import { Herobg, Leftlogo, Rightlogo, Grradientleft, Gradientright } from "../../assets/images";
+import Navbar from "./Navbar";
 
-const ratingData = [
-  { value: 25, icon: TickIcon, label: "Successful Years" },
-  { value: 7, icon: TickIcon, label: "Global Awards" },
-  { value: 2000, icon: BoxIcon, label: "Projects Completed" },
-  { value: 1000, icon: UserIcon, label: "Happy Clients" },
-  { value: 250, icon: UsersIcon, label: "Team Members" }
+const stats = [
+  { value: "100+", label: "Satisfied Clients" },
+  { value: "10+", label: "Expert Engineers" },
+  { value: "4+", label: "Years of Excellence" },
+  { value: "15+", label: "Service Divisions" },
 ];
 
-const HeaderSection = () => {
+const Sparkle = (props) => (
+  <Box position="absolute" {...props}>
+    <svg width="44" height="44" viewBox="0 0 44 44" fill="#4C8DF0">
+      <path d="M28 4l2.6 8.4L39 15l-8.4 2.6L28 26l-2.6-8.4L17 15l8.4-2.6z" />
+      <path d="M12 22l1.8 5.2L19 29l-5.2 1.8L12 36l-1.8-5.2L5 29l5.2-1.8z" />
+      <path d="M8 8l1.2 3L12 12l-2.8 1L8 16l-1.2-3L4 12l2.8-1z" opacity="0.8" />
+    </svg>
+  </Box>
+);
 
-  const [isOpen, setIsOpen] = useState(false);
+const HeaderSection = () => (
+  <Box w="100%" bg="#020817" color="white" fontFamily="'Inter', sans-serif">
+    <Navbar />
 
-  const videoRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+    <Box position="relative" overflow="hidden" bgImage={`url(${Herobg})`} bgSize="cover" bgPosition="center top">
+      {/* lighter overlay so the photo shows through, darker toward the bottom */}
+      <Box position="absolute" inset="0" bgGradient="linear(to-b, rgba(4,18,48,0.35) 0%, rgba(2,8,24,0.7) 60%, #000 100%)" />
 
-  const handlePlay = () => {
-    videoRef.current.play();
-    setIsPlaying(true);
-  };
+      {/* blue glows */}
+      <Box position="absolute" left="0" top="0" h="100%" w={{ base: "60%", md: "38%" }} bgImage={`url(${Grradientleft})`} bgRepeat="no-repeat"
+        bgSize="100% 100%" opacity={0.55} pointerEvents="none" />
+      <Box position="absolute" right="0" bottom="0" h="70%" w={{ base: "50%", md: "30%" }} bgImage={`url(${Gradientright})`} bgRepeat="no-repeat"
+        bgSize="100% 100%" opacity={0.5} pointerEvents="none" />
 
-  return (
-    <Box
-      w="100%"
-      bgImage={`url(${Herobg})`}
-      bgSize="cover"
-      bgPosition="center"
-      position="relative"
-      overflow="hidden"
-      color="white"
-    >
-
-      <Box
-        position="absolute"
-        top="-50px"
-        left="-100px"
-        w={{ base: "300px", md: "500px", lg: "700px" }}
-        bgImage={`url(${Grradientleft})`}
-        bgRepeat="no-repeat"
-        bgSize="contain"
-        opacity="0.6"
-        zIndex={0}
-      />
-
-      <Box
-        position="absolute"
-        top="-50px"
-        right="-100px"
-        w={{ base: "300px", md: "500px", lg: "700px" }}
-        bgImage={`url(${Gradientright})`}
-        bgRepeat="no-repeat"
-        bgSize="contain"
-        opacity="0.6"
-        zIndex={0}
-      />
-
-      <Image
-        src={Leftlogo}
-        position="absolute"
-        left="0"
-        top={{ base: "20px", md: "60px" }}
-        h={{ base: "120px", md: "200px", lg: "280px", xl: "350px" }}
-        opacity={{ base: 0.3, md: 0.6 }}
-        zIndex={1}
-        pointerEvents="none"
-      />
-
-      <Image
-        src={Rightlogo}
-        position="absolute"
-        right="0"
-        top="50%"
-        transform="translateY(-50%)"
-        h={{ base: "120px", md: "200px", lg: "280px", xl: "350px" }}
-        opacity={{ base: 0.3, md: 0.6 }}
-        zIndex={1}
-        pointerEvents="none"
-      />
-
-      <Container maxW="container.xl" position="relative" zIndex={2}>
-
-        <Flex py={6} align="center" justify="space-between">
-
-          <Text fontSize={{ base: "20px", md: "28px" }} fontWeight="500">
-            albetech
-          </Text>
-
-          <Image
-            src={Albetechlogo}
-            alt="Albetech"
-            h={{ base: "60px", md: "90px" }}
-          />
-
-          <Flex align="center" gap={6}>
-
-            <Flex align="center" gap="6px" cursor="pointer" role="group">
-              <Box borderBottom="1px solid white">
-                <Text fontSize={{ base: "14px", md: "16px" }}>
-                  Get in Touch
-                </Text>
-              </Box>
-
-              <ArrowForwardIcon
-                boxSize={4}
-                transition="0.3s"
-                _groupHover={{ transform: "translateX(4px)" }}
-              />
-            </Flex>
-
-            <Box cursor="pointer" onClick={() => setIsOpen(!isOpen)}>
-              <MenuIcon width="25px" height="25px" />
-            </Box>
-
-          </Flex>
-
-        </Flex>
-
-        <Collapse in={isOpen} animateOpacity>
-
-         <Flex
-           direction={{ base: "column", md: "row" }}
-             align="center"
-             justify="center"
-             gap={{ base: 6, md: 16, lg: 24 }}
-             py="20px"
-             fontSize={{ base: "18px", md: "22px" }}
-           >
-
-            <Text cursor="pointer">Home</Text>
-
-           <Text cursor="pointer">About Us</Text>
-
-            <Menu>
-
-              <MenuButton
-                 cursor="pointer"
-                 display="flex"
-                 alignItems="center"
-                 gap="4px"
-               >
-                 Our Services <ChevronDownIcon />
-               </MenuButton>
-
-             <MenuList
-                 bg="#061D48"
-                 border="none"
-                 minW={{ base: "200px", md: "260px" }}
-               >
-
-                 <MenuItem
-                   bg="#061D48"
-                   _hover={{ bg: "#2A3D5F" }}
-                   whiteSpace="normal"
-                 >
-                   Web & Mobile Application Development
-                 </MenuItem>
-
-                 <MenuItem
-                   bg="#061D48"
-                   _hover={{ bg: "#2A3D5F" }}
-                 >
-                   Software Engineering
-                 </MenuItem>
-
-                 <MenuItem
-                   bg="#061D48"
-                   _hover={{ bg: "#2A3D5F" }}
-                 >
-                   Albetech Consultancy
-                 </MenuItem>
-
-             </MenuList>
-
-             </Menu>
-
-             <Text cursor="pointer">Contact Us</Text>
-
-          </Flex> 
-
-         </Collapse> 
-
-
-
-        <Box textAlign="center" mt={{ base: 10, md: 20 }}>
-
-          <Text
-            fontSize={{ base: "32px", md: "60px", lg: "92px" }}
-            lineHeight={{ base: "42px", md: "70px", lg: "110px" }}
-          >
-            Engineering Your Vision
+      {/* logo marks on both sides, clipped by the edges */}
+      <Image src={Leftlogo} alt="" position="absolute" left={{ base: "-45%", md: "-7%" }} top={{ base: "4%", md: "10%" }}
+        h={{ base: "300px", md: "560px", xl: "700px" }} opacity={0.5} pointerEvents="none" />
+      <Image src={Rightlogo} alt="" position="absolute" right={{ base: "-45%", md: "-8%" }} bottom={{ base: "10%", md: "12%" }}
+        h={{ base: "260px", md: "480px", xl: "620px" }} opacity={0.5} pointerEvents="none" />
+      <Container maxW="1300px" position="relative" zIndex={2} pt={{ base: 20, md: "190px" }} pb={{ base: 12, md: 16 }} textAlign="center">
+        <Box position="relative" display="inline-block" maxW="100%">
+          <Text as="h1" fontFamily="'DM Sans', sans-serif" fontWeight={400} fontSize={{ base: "34px", sm: "46px", md: "72px", xl: "92px" }}
+            lineHeight={1.35} bgGradient="linear(to-b, #FFFFFF 35%, #8FA8D6)" bgClip="text">
+            We Turn Your Vision
             <br />
-
-            <Text
-              as="span"
-              bgGradient="linear(to-r, #08A6E1, #13B4D2, #FFFFFF)"
-              bgClip="text"
-            >
-              Smart Technology
-            </Text>
-
+            Into{" "}
+            <Text as="span" bgGradient="linear(to-r, #2563C9, #1C398E)" bgClip="text">AI-Driven</Text>{" "}
+            Innovation
           </Text>
+          <Sparkle top={{ base: "-24px", md: "-40px" }} right={{ base: "-6px", md: "-60px" }} display={{ base: "none", sm: "block" }} />
+        </Box>
 
-          <Text
-            mt={6}
-            fontSize={{ base: "14px", md: "18px", lg: "20px" }}
-            color="#9FB6D8"
-            maxW="800px"
-            mx="auto"
-          >
-            Turning Ideas Into Smart Digital InnovationAlbetech helps you convert bold business visions into
-            reliable, high-performance technology solutions designed for tomorrow.
+        <Box position="relative" maxW="980px" mx="auto" mt={{ base: 8, md: 16 }}>
+          <Sparkle left={{ base: "0", xl: "-130px" }} top="-10px" display={{ base: "none", xl: "block" }} transform="scale(0.8)" />
+          <Text fontFamily="'DM Sans', sans-serif" fontSize={{ base: "14px", md: "18px" }} lineHeight={1.45} color="white">
+            We are Albetech — A leading software and digital transformation company delivering innovative, AI-powered solutions
+            from Trivandrum. We provide enterprise-grade, globally benchmarked custom software and digital solutions tailored to
+            your business requirements across every industry.
           </Text>
-
         </Box>
 
-        <Box mt={{ base: 10, md: 20 }} position="relative">
+        <Grid templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(4, 1fr)" }} gap={{ base: 3, md: 5 }} maxW="1200px" mx="auto"
+          mt={{ base: 10, md: 14 }} textAlign="left">
+          {stats.map(({ value, label }) => (
+            <Box key={label} bg="white" borderRadius="16px" px={{ base: 4, md: 6 }} py={{ base: 3, md: 4 }} boxShadow="0 6px 20px rgba(0,0,0,0.25)">
+              <Text fontSize={{ base: "30px", md: "44px" }} fontWeight={600} color="#1C398E" lineHeight={1.1}>{value}</Text>
+              <Text fontSize={{ base: "14px", md: "18px" }} color="#3A4660">{label}</Text>
+            </Box>
+          ))}
+        </Grid>
 
-          <Box border="2px solid white" borderRadius="20px" overflow="hidden">
-
-            <Box
-              as="video"
-              ref={videoRef}
-              src={HeroVideo}
-              w="100%"
-              objectFit="cover"
-              loop
-              playsInline
-            />
-
-          </Box>
-
-          {!isPlaying && (
-
-            <IconButton
-              icon={<ChevronRightIcon boxSize={10} />}
-              position="absolute"
-              top="50%"
-              left="50%"
-              transform="translate(-50%, -50%)"
-              borderRadius="full"
-              size="lg"
-              bg="white"
-              color="black"
-              _hover={{ bg: "gray.200" }}
-              onClick={handlePlay}
-            />
-
-          )}
-
-        </Box>
-
-        <Box mt={{ base: 10, md: 16 }} textAlign="center">
-
-          <Grid
-            templateColumns={{
-              base: "repeat(2,1fr)",
-              md: "repeat(3,1fr)",
-              lg: "repeat(5,1fr)"
-            }}
-            gap={6}
-          >
-
-            {ratingData.map((item, index) => (
-              <RatingCard
-                key={index}
-                value={item.value}
-                label={item.label}
-                icon={item.icon}
-              />
-            ))}
-
-          </Grid>
-
-        </Box>
-
+        <Flex justify={{ base: "center", md: "flex-start" }} gap={4} mt={{ base: 8, md: 6 }} wrap="wrap" maxW="1200px" mx="auto">
+          <Button h="64px" px={9} borderRadius="12px" bgGradient="linear(to-b, #0B1840, #030814)" border="1.5px solid rgba(255,255,255,0.8)"
+            color="white" fontSize="18px" fontWeight={500} rightIcon={<ArrowForwardIcon />} _hover={{ bg: "#0B1840" }}>
+            Start Your Project
+          </Button>
+          <Button h="64px" px={9} borderRadius="12px" bg="white" color="#1C398E" fontSize="18px" fontWeight={600}
+            rightIcon={
+              <Icon viewBox="0 0 24 24" boxSize="22px" fill="#1C398E">
+                <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-2 6.5 6 3.5-6 3.5z" />
+              </Icon>
+            }
+            _hover={{ bg: "#EEF2FB" }}>
+            View Our Work
+          </Button>
+        </Flex>
       </Container>
-
     </Box>
-  );
-};
+  </Box>
+);
 
 export default HeaderSection;
