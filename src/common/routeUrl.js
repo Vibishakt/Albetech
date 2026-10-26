@@ -6,6 +6,11 @@ export const ROUTE_URL={
         OPEN_ROLES:"/open-roles",
         DEPARTMENTS:"/departments",
         LOCATIONS:"/locations",
-        SERVICES:"/services"
+        SERVICES:"/services",
+        CONTACT:"/contact"
+    },
+    ADMIN:{
+        LOGIN:"/admin/login",
+        JOBS:"/admin/jobs"
     }
 }
