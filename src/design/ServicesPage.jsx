@@ -65,6 +65,9 @@ textarea.sv-in{min-height:130px;resize:vertical}
 .sv-opt.chip input{display:none}
 .sv-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin-top:28px;padding:17px;border:0;border-radius:12px;background:linear-gradient(90deg,#2F5BEA,#0B2A6B);color:#fff;font:inherit;font-size:16px;font-weight:700;cursor:pointer;box-shadow:0 12px 26px rgba(47,91,234,.3);transition:transform .2s ease,box-shadow .2s ease}
 .sv-btn:hover{transform:translateY(-2px);box-shadow:0 18px 36px rgba(11,42,107,.35)}
+.sv-in.bad{border-color:#DC2626;background:#FFF8F8}
+.sv-in.bad:focus{box-shadow:0 0 0 4px rgba(220,38,38,.14)}
+.sv-err{margin-top:6px;font-size:12.5px;font-weight:600;color:#DC2626}
 .sv-ok{margin-top:16px;padding:14px 16px;border-radius:12px;background:#ECFDF3;border:1px solid #BBF0D0;color:#166534;font-size:14.5px;line-height:1.55}
 @media(max-width:880px){.sv-hero-in,.sv-grid{grid-template-columns:1fr}.sv-orbit{margin-top:8px}}
 @media(max-width:560px){.sv-row{grid-template-columns:1fr}.sv-opts{grid-template-columns:1fr 1fr}.sv-hero{padding-bottom:44px}.sv-body{padding:44px 16px 64px}.sv-form{padding:26px 18px 24px}.sv-title{font-size:28px}.sv-form h2{font-size:23px}.sv-cc{padding:16px}.sv-cc-tx{font-size:15px}}
@@ -219,6 +222,7 @@ function Component() {
   const { search } = useLocation();
   const [form, setForm] = React.useState({ name: '', phone: '', email: '', company: '', message: '', budget: '', services: [] });
   const [sent, setSent] = React.useState(false);
+  const [touched, setTouched] = React.useState({});
 
   React.useEffect(() => {
     const picked = SERVICE_MAP[new URLSearchParams(search).get('service')];
@@ -226,10 +230,46 @@ function Component() {
     setSent(false);
   }, [search]);
 
-  const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
+  const validate = (f) => {
+    const errs = {};
+    const name = f.name.trim();
+    const phoneDigits = f.phone.replace(/[\s\-()]/g, '').replace(/^\+/, '');
+    if (!name) errs.name = 'Please enter your full name.';
+    else if (name.length < 2) errs.name = 'Name must be at least 2 characters.';
+    else if (!/^[\p{L}][\p{L}\s.'-]*$/u.test(name)) errs.name = 'Name can only contain letters, spaces, . \' and -.';
+    if (!f.phone.trim()) errs.phone = 'Please enter your phone number.';
+    else if (!/^\d+$/.test(phoneDigits) || phoneDigits.length < 10 || phoneDigits.length > 13) errs.phone = 'Enter a valid phone number (10–13 digits).';
+    if (!f.email.trim()) errs.email = 'Please enter your email address.';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email.trim())) errs.email = 'Enter a valid email address.';
+    if (f.company.trim().length > 100) errs.company = 'Company name must be under 100 characters.';
+    if (f.message.trim() && f.message.trim().length < 10) errs.message = 'Please add a little more detail (at least 10 characters).';
+    else if (f.message.length > 1000) errs.message = 'Message must be under 1000 characters.';
+    return errs;
+  };
+  const errors = validate(form);
+  const showErr = (k) => (touched[k] ? errors[k] : undefined);
+  const fieldProps = (k) => ({
+    value: form[k],
+    onChange: set(k),
+    onBlur: () => setTouched((t) => ({ ...t, [k]: true })),
+    className: 'sv-in' + (showErr(k) ? ' bad' : ''),
+    'aria-invalid': showErr(k) ? 'true' : undefined,
+    'aria-describedby': showErr(k) ? 'sv-err-' + k : undefined,
+  });
+  const errMsg = (k) => (showErr(k) ? <div className="sv-err" id={'sv-err-' + k} role="alert">{errors[k]}</div> : null);
+
+  const set = (k) => (e) => { setSent(false); setForm((f) => ({ ...f, [k]: e.target.value })); };
   const toggle = (s) => setForm((f) => ({ ...f, services: f.services.includes(s) ? f.services.filter((x) => x !== s) : [...f.services, s] }));
   const submit = (e) => {
     e.preventDefault();
+    const errs = validate(form);
+    if (Object.keys(errs).length) {
+      setTouched({ name: true, phone: true, email: true, company: true, message: true });
+      setSent(false);
+      const first = ['name', 'phone', 'email', 'company', 'message'].find((k) => errs[k]);
+      document.getElementById({ name: 'sv-name', phone: 'sv-phone', email: 'sv-email', company: 'sv-co', message: 'sv-msg' }[first])?.focus();
+      return;
+    }
     const body = [
       'Name: ' + form.name, 'Phone: ' + form.phone, 'Email: ' + form.email, 'Company: ' + form.company,
       'Services: ' + (form.services.join(', ') || '-'), 'Budget: ' + (form.budget || '-'), '', form.message,
@@ -296,15 +336,15 @@ function Component() {
             </div>
           </div>
 
-          <form className="sv-form" onSubmit={submit}>
+          <form className="sv-form" onSubmit={submit} noValidate>
             <h2>Send Us a Message</h2>
             <p className="sv-sub" style={{ marginBottom: 0 }}>Tell us about your project — we’ll reply with a tailored proposal.</p>
             <div className="sv-row sv-f">
-              <div><label className="sv-lb" htmlFor="sv-name">Full name *</label><input id="sv-name" className="sv-in" required placeholder="Your name" value={form.name} onChange={set('name')} /></div>
-              <div><label className="sv-lb" htmlFor="sv-phone">Phone number *</label><input id="sv-phone" className="sv-in" required type="tel" placeholder="+91" value={form.phone} onChange={set('phone')} /></div>
+              <div><label className="sv-lb" htmlFor="sv-name">Full name *</label><input id="sv-name" required placeholder="Your name" autoComplete="name" maxLength={80} {...fieldProps('name')} />{errMsg('name')}</div>
+              <div><label className="sv-lb" htmlFor="sv-phone">Phone number *</label><input id="sv-phone" required type="tel" placeholder="+91" autoComplete="tel" maxLength={20} {...fieldProps('phone')} />{errMsg('phone')}</div>
             </div>
-            <div className="sv-f"><label className="sv-lb" htmlFor="sv-email">Email address *</label><input id="sv-email" className="sv-in" required type="email" placeholder="you@company.com" value={form.email} onChange={set('email')} /></div>
-            <div className="sv-f"><label className="sv-lb" htmlFor="sv-co">Company / Organisation</label><input id="sv-co" className="sv-in" placeholder="Your company name" value={form.company} onChange={set('company')} /></div>
+            <div className="sv-f"><label className="sv-lb" htmlFor="sv-email">Email address *</label><input id="sv-email" required type="email" placeholder="you@company.com" autoComplete="email" {...fieldProps('email')} />{errMsg('email')}</div>
+            <div className="sv-f"><label className="sv-lb" htmlFor="sv-co">Company / Organisation</label><input id="sv-co" placeholder="Your company name" autoComplete="organization" {...fieldProps('company')} />{errMsg('company')}</div>
             <div className="sv-f">
               <span className="sv-lb">Services required</span>
               <div className="sv-opts">
@@ -325,7 +365,7 @@ function Component() {
                 ))}
               </div>
             </div>
-            <div className="sv-f"><label className="sv-lb" htmlFor="sv-msg">Message / Project brief</label><textarea id="sv-msg" className="sv-in" placeholder="Briefly describe your project, goals, or timeline..." value={form.message} onChange={set('message')} /></div>
+            <div className="sv-f"><label className="sv-lb" htmlFor="sv-msg">Message / Project brief</label><textarea id="sv-msg" placeholder="Briefly describe your project, goals, or timeline..." maxLength={1000} {...fieldProps('message')} />{errMsg('message')}</div>
             <button type="submit" className="sv-btn">{ico(<path d="M22 2L11 13M22 2l-7 20-4-9-9-4z" />, 15)}Send Message</button>
             {sent ? <div className="sv-ok" role="status">Thanks! Your email app should open with the enquiry ready to send to info@albetech.in.</div> : null}
           </form>
