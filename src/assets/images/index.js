@@ -42,9 +42,10 @@ import sreeja from './sreeja.jpeg';
 import KAVERIII from './KAVERIII.jpeg';
 import kyaveri from './kyaveri.PNG';
 import abhijith from './abhijith.jpeg';
+import midhleshh from './midhleshh.png';
 
 
 export{
     Herobg,Albetechlogo,Gradientright,Grradientleft,Leftlogo,Rightlogo,Getintouch,Vdeo,bgTwo,Android,Iosdevelopment,Mernstack,Enterprise,Webapplication,cardimg,carouselimg,carouselimg2,BlueBg,Client1,Client2,Client3,Client4,Client5,Client6,Client7,Client8,Client10,selektup,Gosuas
-,Client11,Abtrect,ourpartners,maya,msuhail,orisir,imgg,JOM,SOORAJ,sreeja,KAVERIII,sreekuttyymol,kyaveri,abhijith
+,Client11,Abtrect,ourpartners,maya,msuhail,orisir,imgg,JOM,SOORAJ,sreeja,KAVERIII,sreekuttyymol,kyaveri,abhijith,midhleshh
 }

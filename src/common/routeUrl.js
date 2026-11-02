@@ -5,6 +5,12 @@ export const ROUTE_URL={
         CAREERS:"/careers",
         OPEN_ROLES:"/open-roles",
         DEPARTMENTS:"/departments",
-        LOCATIONS:"/locations"
+        LOCATIONS:"/locations",
+        SERVICES:"/services",
+        CONTACT:"/contact"
+    },
+    ADMIN:{
+        LOGIN:"/admin/login",
+        JOBS:"/admin/jobs"
     }
 }

@@ -1,6 +1,6 @@
 import './App.css'
 import { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 
 import { ROUTE_URL } from './common/routeUrl';
 import MainPage from './design/MainPage';
@@ -9,6 +9,8 @@ import CareersPage from './design/CareersPage';
 import OpenRolesPage from './design/OpenRolesPage';
 import DepartmentsPage from './design/DepartmentsPage';
 import LocationsPage from './design/LocationsPage';
+import ServicesPage from './design/ServicesPage';
+import { AdminLogin, AdminLayout, JobOpenings } from './admin';
 
 function closeMobileMenu() {
   document.querySelectorAll('.hd.menu-open').forEach((el) => el.classList.remove('menu-open'));
@@ -61,6 +63,13 @@ function App() {
         <Route path={ROUTE_URL.LANDING.OPEN_ROLES} element={<OpenRolesPage />} />
         <Route path={ROUTE_URL.LANDING.DEPARTMENTS} element={<DepartmentsPage />} />
         <Route path={ROUTE_URL.LANDING.LOCATIONS} element={<LocationsPage />} />
+        <Route path={ROUTE_URL.LANDING.SERVICES} element={<ServicesPage />} />
+        <Route path={ROUTE_URL.LANDING.CONTACT} element={<ServicesPage />} />
+        <Route path={ROUTE_URL.ADMIN.LOGIN} element={<AdminLogin />} />
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<Navigate to="jobs" replace />} />
+          <Route path="jobs" element={<JobOpenings />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   )

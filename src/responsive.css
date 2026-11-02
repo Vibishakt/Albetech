@@ -90,3 +90,18 @@ body .ah-title .word:last-child { margin-right: 0; }
   body .gp-name { font-size: 19px; }
   body .gp-role { flex-wrap: wrap; }
 }
+
+/* Keep the main navbar pinned to the top on every screen size */
+body .hd { position: sticky; top: 0; z-index: 100; }
+
+/* Top info bar: social icons stay readable on the navy bar */
+body .tb .tb-soc .soc-ic { background-color: #fff !important; color: #1E3A8A !important; }
+
+/* Top info bar: compact on phones (email + phone on one line, icons below, location hidden) */
+@media (max-width: 767px) {
+  body .tb-in { padding: 8px 14px; gap: 8px; }
+  body .tb-left { flex-wrap: nowrap; gap: 14px; font-size: 11.5px; }
+  body .tb-left > span { display: none; }
+  body .tb-left a { white-space: nowrap; gap: 5px; }
+  body .tb-soc { gap: 8px; }
+}
